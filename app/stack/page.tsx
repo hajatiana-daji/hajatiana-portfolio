@@ -37,46 +37,65 @@ function StackCategory({ title, icon, items, color }: StackCategoryProps) {
   );
 }
 
-
-
 export default function StackPage() {
+  const { stack } = portfolioData;
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
-      
+
       <main className="flex-grow px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6">
-            <StackCategory 
-              title="Frontend" 
-              icon={<Code size={24} />} 
-              items={portfolioData.stack.frontend} 
-              color="blue" 
+
+            {/* Langages */}
+            <StackCategory
+              title="Langages"
+              icon={<Code size={24} />}
+              items={stack.languages}
+              color="blue"
             />
-            <StackCategory 
-              title="Backend" 
-              icon={<Briefcase size={24} />} 
-              items={portfolioData.stack.backend} 
-              color="green" 
+
+            {/* Frameworks & Technologies */}
+            <StackCategory
+              title="Frameworks & Technologies"
+              icon={<Briefcase size={24} />}
+              items={stack.technologies_frameworks}
+              color="green"
             />
-            <StackCategory 
-              title="Base de données" 
-              icon={<Code size={24} />} 
-              items={portfolioData.stack.database} 
-              color="purple" 
+
+            {/* Bases de données */}
+            <StackCategory
+              title="Bases de données"
+              icon={<Code size={24} />}
+              items={stack.databases}
+              color="purple"
             />
-            <StackCategory 
-              title="Outils & DevOps" 
-              icon={<Code size={24} />} 
-              items={portfolioData.stack.tools} 
-              color="orange" 
+
+            {/* Outils & DevOps */}
+            <StackCategory
+              title="Outils & DevOps"
+              icon={<Code size={24} />}
+              items={stack.outils}
+              color="orange"
             />
-            <StackCategory 
-              title="Mobile" 
-              icon={<Code size={24} />} 
-              items={portfolioData.stack.mobile} 
-              color="pink" 
+
+            {/* Architecture & Conception */}
+            <StackCategory
+              title="Architecture & Conception"
+              icon={<Code size={24} />}
+              items={stack.architecture_conception}
+              color="pink"
             />
+
+            {/* Gestion & Pilotage Technique */}
+            <StackCategory
+              title="Gestion & Pilotage Technique"
+              icon={<Briefcase size={24} />}
+              items={stack.gestion_pilotage_technique}
+              color="blue"
+            />
+
           </div>
         </div>
       </main>
