@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import { ArrowLeft, Users, ChevronRight, Calendar } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowLeft, Users, ChevronRight, Calendar, User, Briefcase, CheckCircle } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio-data';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import { notFound } from 'next/navigation';
 
 export default function ProjectDetailPage({ params }: { params: { id: string } }) {
@@ -13,80 +15,207 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <nav className="bg-white shadow-sm p-4">
-        <div className="max-w-6xl mx-auto flex items-center gap-4">
-          <Link 
-            href="/projets"
-            className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition"
-          >
-            <ArrowLeft size={20} /> Retour aux projets
-          </Link>
-        </div>
-      </nav>
+      <Header />
       
       <main className="flex-grow px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex items-start justify-between mb-6">
-              <h1 className="text-3xl font-bold text-gray-800">{project.title}</h1>
-              <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-medium">
-                {project.role}
-              </span>
-            </div>
-            
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Contexte</h3>
-              <p className="text-gray-600 leading-relaxed">{project.details.context}</p>
-            </div>
+        <div className="max-w-5xl mx-auto">
+          {/* Breadcrumb */}
+          <div className="mb-6">
+            <Link 
+              href="/projets"
+              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"
+            >
+              <ArrowLeft size={20} />
+              Retour aux projets
+            </Link>
+          </div>
 
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-3 text-gray-800 flex items-center gap-2">
-                <Users size={20} /> Équipe
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {project.team.map((member, i) => (
-                  <span key={i} className="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg">
-                    {member}
-                  </span>
-                ))}
+          {/* Header du projet */}
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
+            {/* Images du projet */}
+            <div className="grid md:grid-cols-2 gap-4 p-6 bg-gray-50">
+              {/* Image principale */}
+              <div className="relative h-64 md:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Briefcase size={80} className="text-blue-300" />
+                  </div>
+                )}
+              </div>
+
+              {/* Image secondaire ou grille d'images */}
+              <div className="relative h-64 md:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
+                {project.images && project.images.length > 0 ? (
+                  <Image
+                    src={project.images[0]}
+                    alt={`${project.title} - Image 2`}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Briefcase size={80} className="text-purple-300" />
+                  </div>
+                )}
               </div>
             </div>
 
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Mes responsabilités</h3>
-              <ul className="space-y-2">
+            {/* Informations principales */}
+            <div className="p-8">
+              <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+                <div className="flex-1">
+                  <h1 className="text-4xl font-bold text-gray-900 mb-2">{project.title}</h1>
+                  {project.client && (
+                    <p className="text-lg text-gray-600 flex items-center gap-2">
+                      <User size={20} />
+                      Client: <span className="font-semibold text-gray-900">{project.client}</span>
+                    </p>
+                  )}
+                </div>
+                <span className="bg-blue-100 text-blue-700 px-6 py-3 rounded-full text-lg font-semibold">
+                  {project.role}
+                </span>
+              </div>
+
+              {/* Métadonnées */}
+              <div className="flex flex-wrap gap-6 mb-6 pb-6 border-b border-gray-200">
+                <div className="flex items-center gap-2 text-gray-600">
+                  <Calendar size={20} className="text-blue-600" />
+                  <span className="font-medium">{project.date}</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-600">
+                  <Users size={20} className="text-green-600" />
+                  <span className="font-medium">{project.team.length} membres d'équipe</span>
+                </div>
+              </div>
+
+              {/* Résumé du projet */}
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Résumé du projet</h2>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Contexte */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="w-1 h-8 bg-blue-600 rounded"></div>
+              Contexte
+            </h2>
+            <p className="text-gray-700 leading-relaxed text-lg">
+              {project.details.context}
+            </p>
+          </div>
+
+          {/* Technologies utilisées */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <div className="w-1 h-8 bg-purple-600 rounded"></div>
+              Technologies utilisées
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {project.technologies.map((tech, i) => (
+                <span 
+                  key={i} 
+                  className="bg-blue-50 text-blue-700 px-5 py-3 rounded-xl font-medium text-lg border border-blue-200 hover:bg-blue-100 transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Mes missions */}
+          {project.details.missions && project.details.missions.length > 0 && (
+            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <div className="w-1 h-8 bg-green-600 rounded"></div>
+                Mes missions
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {project.details.missions.map((mission, i) => (
+                  <div key={i} className="flex items-start gap-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                    <CheckCircle size={24} className="text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 leading-relaxed">{mission}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Responsabilités (si différent des missions) */}
+          {project.details.responsibilities && project.details.responsibilities.length > 0 && (
+            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <div className="w-1 h-8 bg-orange-600 rounded"></div>
+                Responsabilités
+              </h2>
+              <ul className="space-y-3">
                 {project.details.responsibilities.map((resp, i) => (
-                  <li key={i} className="flex items-start gap-2 text-gray-600">
-                    <ChevronRight size={20} className="text-blue-500 mt-1 flex-shrink-0" />
+                  <li key={i} className="flex items-start gap-3 text-gray-700 leading-relaxed">
+                    <ChevronRight size={24} className="text-orange-600 flex-shrink-0 mt-0.5" />
                     <span>{resp}</span>
                   </li>
                 ))}
               </ul>
             </div>
+          )}
 
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Technologies utilisées</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, i) => (
-                  <span key={i} className="bg-blue-50 text-blue-700 px-4 py-2 rounded-lg font-medium">
-                    {tech}
-                  </span>
-                ))}
-              </div>
+          {/* L'équipe */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <Users size={28} className="text-indigo-600" />
+              L'équipe sur ce projet
+            </h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              {project.team.map((member, i) => (
+                <div 
+                  key={i} 
+                  className="flex items-center gap-3 p-4 bg-indigo-50 rounded-lg border border-indigo-200"
+                >
+                  <div className="w-12 h-12 rounded-full bg-indigo-200 flex items-center justify-center text-indigo-700 font-bold text-lg">
+                    {member.charAt(0)}
+                  </div>
+                  <span className="text-gray-700 font-medium">{member}</span>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
-              <h3 className="text-lg font-semibold mb-2 text-green-800">Résultats</h3>
-              <p className="text-green-700">{project.details.results}</p>
-            </div>
+          {/* Résultats */}
+          <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+              <CheckCircle size={28} />
+              Résultats obtenus
+            </h2>
+            <p className="text-lg leading-relaxed text-green-50">
+              {project.details.results}
+            </p>
+          </div>
 
-            <div className="mt-6 flex items-center text-sm text-gray-500">
-              <Calendar size={16} className="mr-2" />
-              Période: {project.date}
-            </div>
+          {/* Navigation vers d'autres projets */}
+          <div className="flex justify-center">
+            <Link 
+              href="/projets"
+              className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl font-medium"
+            >
+              Voir tous les projets
+              <ChevronRight size={20} />
+            </Link>
           </div>
         </div>
       </main>
+      
       <Footer />
     </div>
   );

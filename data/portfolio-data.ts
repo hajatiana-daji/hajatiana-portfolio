@@ -2,14 +2,18 @@ export interface Project {
   id: string;
   title: string;
   role: string;
+  client: string;
   description: string;
   technologies: string[];
   date: string;
   team: string[];
+  image: string;
+  images?: string[];
   details: {
     context: string;
     responsibilities: string[];
     results: string;
+    missions: string[]; // NOUVEAU - résumé des missions
   };
 }
 
@@ -51,6 +55,9 @@ export const portfolioData: PortfolioData = {
       id: "1",
       title: "Application web : CELAVI Gestion",
       role: "Chef de Projet",
+      client: "CELAVI", // NOUVEAU
+      image: "/images/projects/celavi-main.jpg", // NOUVEAU
+      images: ["/images/projects/celavi-1.jpg", "/images/projects/celavi-2.jpg"], // NOUVEAU
       description: "Développement et maintenance d'une plateforme de gestion locative.",
       technologies: ["CodeIgniter (PHP)", "Ajax", "MySQL", "Bootstrap", "jQuery"],
       date: "Juillet 2023 - Aujourd'hui",
@@ -63,13 +70,23 @@ export const portfolioData: PortfolioData = {
           "Gestion du planning et des sprints",
           "Relations avec le client"
         ],
-        results: "Plateforme livrée dans les délais avec +150% d'augmentation des ventes en ligne."
+        missions: [ // NOUVEAU
+          "Architecture et conception de la base de données",
+          "Développement des modules de gestion locative",
+          "Mise en place du système d'authentification",
+          "Déploiement et maintenance"
+        ],
+        results: "Plateforme livrée dans les délais avec amélioration de 80% de la productivité."
       }
     },
     {
       id: "2",
       title: "Application Mobile : Hdepenses",
       role: "Concepteur | Développeur",
+       client: "Projet personnel", // AJOUTEZ
+      image: "/images/projects/hdepenses-main.jpg", // AJOUTEZ
+      images: ["/images/projects/hdepenses-1.jpg", "/images/projects/hdepenses-2.jpg"], // AJOUTEZ
+      
       description: "Conception et réalisation d'une application mobile pour la gestion de dépenses mensuelles.",
       technologies: ["Flutter", "SqlLite", "MySQL"],
       date: "Oct 2025 - aujourd'hui",
@@ -82,6 +99,13 @@ export const portfolioData: PortfolioData = {
           "Création des dashboards analytiques",
           "Tests et optimisation des performances"
         ],
+        missions: [ // AJOUTEZ
+          "Analyse des besoins et conception fonctionnelle",
+          "Développement de l'interface utilisateur avec Flutter",
+          "Implémentation de la gestion des données avec SQLite",
+          "Développement du système de catégorisation automatique des dépenses",
+          "Création de graphiques et statistiques de dépenses"
+        ],
         results: "Application déployée avec 5000+ téléchargements en 2 mois."
       }
     },
@@ -90,7 +114,10 @@ export const portfolioData: PortfolioData = {
       id: "3",
       title: "Application Mobile : Hiraparti",
       role: "Concepteur | Développeur",
-      description: "Conception et réalisation d'une application mobile pour la gestion de dépenses mensuelles.",
+      client: "Client privé", // AJOUTEZ
+      image: "/images/projects/hiraparti-main.jpg", // AJOUTEZ
+      images: ["/images/projects/hiraparti-1.jpg", "/images/projects/hiraparti-2.jpg"], // AJOUTEZ
+       description: "Conception et réalisation d'une application mobile pour la gestion de dépenses mensuelles.",
       technologies: ["Flutter", "SqlLite", "MySQL"],
       date: "Aout 2025 - Oct 2025",
       team: ["2 Développeurs", "1 Product Owner"],
@@ -102,18 +129,25 @@ export const portfolioData: PortfolioData = {
           "Création des dashboards analytiques",
           "Tests et optimisation des performances"
         ],
+        missions: [ // AJOUTEZ
+          "Conception de l'architecture technique",
+          "Développement de l'interface utilisateur",
+          "Implémentation du système d'invitations et RSVP",
+          "Intégration de Firebase pour la synchronisation en temps réel",
+          "Développement du système de partage de photos d'événements"
+        ],
         results: "Application déployée avec 5000+ téléchargements en 2 mois."
       }
     }
   ],
   stack: {
     languages: ["PHP", "JavaScript", "TypeScript", "Dart", "Python", "Java", "C/C#", "SQL"],
-technologies_frameworks: [
-  "React", "Next.js", "Flutter", "Laravel", "Symfony", "Node.js"
-],
+    technologies_frameworks: [
+      "React", "Next.js", "Flutter", "Laravel", "Symfony", "Node.js"
+    ],
 
     databases: ["MySQL", "PostgreSQL"],
-    outils: ["Git",  "Postman","Jira", "dbeaver", "navicat", "Android Studio"],
+    outils: ["Git", "Postman", "Jira", "dbeaver", "navicat", "Android Studio"],
     architecture_conception: ["Architecture logicielle", "Design Patterns", "API REST", "GraphQL", "Clean Code", "Clean Architecture"],
     gestion_pilotage_technique: ["Analyse des besoins", "Conception fonctionnelle", "Gestion d’équipe (développeurs)", "Méthodes Agile / Scrum", "Suivi et pilotage de projets"]
   }
