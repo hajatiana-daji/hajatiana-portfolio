@@ -12,19 +12,15 @@ export default function Home() {
         <div className="max-w-6xl w-full">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Développeur Full Stack
-            </h1>
+            <h1 className="text-6xl md:text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Concepteur & Développeur Web/Mobile | Responsable Technique</h1>
             <p className="text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-4">
               {portfolioData.profile.description}
-            </p>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              Spécialisé dans la création d'applications web modernes et performantes
             </p>
 
             {/* CTA Buttons */}
             <div className="mt-12 flex gap-4 justify-center flex-wrap">
-              <Link 
+              <Link
                 href="/projets"
                 className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 font-medium"
               >
@@ -32,7 +28,7 @@ export default function Home() {
                 Découvrir mes projets
                 <ChevronRight size={20} />
               </Link>
-              <Link 
+              <Link
                 href="/a-propos"
                 className="bg-white text-gray-800 px-8 py-4 rounded-xl hover:bg-gray-50 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 border border-gray-200 font-medium"
               >
@@ -94,8 +90,8 @@ export default function Home() {
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-3xl font-bold text-gray-900">Projets récents</h2>
-              <Link 
-                href="/projets" 
+              <Link
+                href="/projets"
                 className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1"
               >
                 Voir tout <ChevronRight size={20} />

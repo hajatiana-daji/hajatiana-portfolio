@@ -38,7 +38,7 @@ export const portfolioData: PortfolioData = {
   profile: {
     name: "Hajatiana Danielson ANDRIANJAKA",
     photo: "/images/profile.jpg",
-    description: "Développeur Full Stack passionné par la création d'applications web modernes et performantes.",
+    description: "Développeur passionné et responsable technique, je conçois et développe des applications web et mobiles en alliant architecture, qualité du code et vision produit.",
     email: "arias.hajatiana@gmail.com",
     phone: "+261 34 65 511 71 | +261 33 63 511 71",
     facebook: "facebook.com/hajatiana.andrianjaka.2025",
