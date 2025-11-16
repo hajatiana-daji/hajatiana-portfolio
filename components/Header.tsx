@@ -32,7 +32,7 @@ export default function Header() {
                             <span className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                                 {portfolioData.profile.name}
                             </span>
-                            <span className="text-sm text-gray-500 hidden md:block">Développeur Full Stack · Web & Mobile</span>
+                            <span className="text-sm text-gray-500 hidden md:block">{portfolioData.profile.title}</span>
                         </div>
                     </Link>
 

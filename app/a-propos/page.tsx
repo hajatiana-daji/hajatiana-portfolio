@@ -36,7 +36,7 @@ export default function AProposPage() {
                   {portfolioData.profile.name}
                 </h1>
                 <p className="text-xl text-blue-600 font-semibold mb-4">
-                  Concepteur & Développeur Web/Mobile | Responsable Technique
+                  {portfolioData.profile.title}
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   {portfolioData.profile.description}
