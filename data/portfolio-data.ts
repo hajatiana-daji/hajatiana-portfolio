@@ -43,7 +43,7 @@ export const portfolioData: PortfolioData = {
   profile: {
     name: "Hajatiana Danielson ANDRIANJAKA",
     photo: "/images/profile.jpg",
-    description: "Développeur passionné et responsable technique, je conçois et développe des applications web et mobiles en alliant architecture, qualité du code et vision produit.",
+    description: "Ingénieur informatique passionné, je transforme les besoins métier en solutions techniques performantes. Expert en développement web/mobile et en architecture logicielle, j'allie compétences techniques pointues et capacité à piloter des projets d'envergure.",
     email: "arias.hajatiana@gmail.com",
     phone: "+261 34 65 511 71 | +261 33 63 511 71",
     facebook: "facebook.com/hajatiana.andrianjaka.2025",
