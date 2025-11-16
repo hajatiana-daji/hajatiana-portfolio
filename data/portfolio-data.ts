@@ -57,7 +57,7 @@ export const portfolioData: PortfolioData = {
       id: "1",
       title: "Application web : CELAVI Gestion",
       role: "Chef de Projet",
-      client: "CELAVI", // NOUVEAU
+      client: "Groupe MANAO", // NOUVEAU
       image: "/images/projects/celavi-main.jpg", // NOUVEAU
       images: ["/images/projects/celavi-1.jpg", "/images/projects/celavi-2.jpg"], // NOUVEAU
       description: "Développement et maintenance d'une plateforme de gestion locative.",
@@ -140,7 +140,35 @@ export const portfolioData: PortfolioData = {
         ],
         results: "Application déployée avec 5000+ téléchargements en 2 mois."
       }
-    }
+    },
+    {
+      id: "4",
+      title: "Application web : RepairSoft",
+      role: "Chef de Projet",
+      client: "Groupe MANAO", // NOUVEAU
+      image: "/images/projects/repairsoft-main.jpg", // NOUVEAU
+      images: ["/images/projects/repairsoft-1.jpg", "/images/projects/repairsoft-2.jpg"], // NOUVEAU
+      description: "Développement et maintenance d'une plateforme web pour la gestion de carrosserie.",
+      technologies: ["CodeIgniter (PHP)", "Ajax", "MySQL", "Bootstrap", "jQuery"],
+      date: "Juillet 2023 - Juin 2025",
+      team: ["2 Techniciens d'assistance", "4 Développeurs", "1 Chef de projet"],
+      details: {
+        context: "Création d'une plateforme pour une entreprise locale souhaitant digitaliser ses ventes.",
+        responsibilities: [
+          "Coordination de l'équipe de développement",
+          "Définition de l'architecture technique",
+          "Gestion du planning et des sprints",
+          "Relations avec le client"
+        ],
+        missions: [ // NOUVEAU
+          "Architecture et conception de la base de données",
+          "Développement des modules de gestion locative",
+          "Mise en place du système d'authentification",
+          "Déploiement et maintenance"
+        ],
+        results: "Plateforme livrée dans les délais avec amélioration de 80% de la productivité."
+      }
+    },
   ],
   stack: {
     languages: ["PHP", "JavaScript", "TypeScript", "Dart", "Python", "Java", "C/C#", "SQL"],
