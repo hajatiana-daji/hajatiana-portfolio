@@ -3,6 +3,17 @@ import ProjectCard from '@/components/ProjectCard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Briefcase } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Mes Projets",
+  description: "Découvrez mes réalisations : applications web (CELAVI Gestion avec CodeIgniter) et mobiles (Hdepenses, Hiraparti avec Flutter). Projets de gestion, e-commerce et applications métier.",
+  openGraph: {
+    title: "Projets | Hajatiana ANDRIANJAKA",
+    description: "Portfolio de projets web et mobile réalisés en tant qu'ingénieur Full Stack.",
+    url: 'https://hajatiana.vercel.app/projets',
+  },
+};
 
 export default function ProjectsPage() {
   return (

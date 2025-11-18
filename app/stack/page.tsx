@@ -2,6 +2,17 @@ import { Code, Database, Wrench, Layers, Users, Briefcase } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio-data';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Stack Technique",
+  description: "Technologies et compétences maîtrisées : Langages (PHP, JavaScript, TypeScript, Dart, Python, Java), Frameworks (React, Next.js, Flutter, Laravel), Bases de données (MySQL, PostgreSQL), Architecture logicielle et gestion de projets Agile.",
+  openGraph: {
+    title: "Stack Technique | Hajatiana ANDRIANJAKA",
+    description: "Compétences techniques complètes : développement web, mobile, architecture et gestion de projets.",
+    url: 'https://hajatiana.vercel.app/stack',
+  },
+};
 
 interface StackCategoryProps {
   title: string;

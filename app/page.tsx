@@ -8,6 +8,19 @@ import { portfolioData } from '@/data/portfolio-data';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Accueil",
+  description: "Ingénieur informatique Full Stack spécialisé en développement web et mobile. Découvrez mes projets, compétences et réalisations.",
+  openGraph: {
+    title: "Hajatiana ANDRIANJAKA | Ingénieur Informatique",
+    description: "Portfolio professionnel - Projets web et mobile, stack technique et réalisations.",
+    url: 'https://hajatiana.vercel.app',
+    images: ['/images/og-image.jpg'],
+  },
+};
+
 export default function Home() {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);

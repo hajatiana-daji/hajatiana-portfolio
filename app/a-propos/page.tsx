@@ -3,6 +3,18 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { portfolioData } from '@/data/portfolio-data';
 import { Mail, Phone, MapPin, Calendar, Award, Code, Target, Heart, Rocket, Users, TrendingUp, Lightbulb } from 'lucide-react';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "À propos",
+  description: "Ingénieur informatique diplômé de l'ENI (2022), spécialisé en développement Full Stack. Découvrez mon parcours académique et professionnel, mes compétences et mes motivations.",
+  openGraph: {
+    title: "À propos | Hajatiana ANDRIANJAKA",
+    description: "Parcours, formation et compétences d'un ingénieur informatique passionné.",
+    url: 'https://hajatiana.vercel.app/a-propos',
+  },
+};
+
 
 export default function AProposPage() {
   return (

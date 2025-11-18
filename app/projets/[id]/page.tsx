@@ -1,10 +1,36 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Users, ChevronRight, Calendar, User, Briefcase, CheckCircle } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio-data';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import { portfolioData } from '@/data/portfolio-data';
+
+type Props = {
+  params: { id: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const project = portfolioData.projects.find(p => p.id === params.id);
+  
+  if (!project) {
+    return {
+      title: 'Projet non trouvé',
+    };
+  }
+
+  return {
+    title: project.title,
+    description: `${project.description} - Technologies: ${project.technologies.join(', ')}. ${project.role} sur ce projet ${project.client ? 'pour ' + project.client : ''}.`,
+    openGraph: {
+      title: `${project.title} | Hajatiana ANDRIANJAKA`,
+      description: project.description,
+      url: `https://hajatiana.vercel.app/projets/${project.id}`,
+      images: project.image ? [project.image] : ['/images/og-image.jpg'],
+    },
+  };
+}
 
 export default function ProjectDetailPage({ params }: { params: { id: string } }) {
   const project = portfolioData.projects.find(p => p.id === params.id);
