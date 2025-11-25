@@ -86,8 +86,8 @@ export const portfolioData: PortfolioData = {
       title: "Application Mobile : Hdepenses",
       role: "Concepteur | Développeur",
        client: "Projet personnel", // AJOUTEZ
-      image: "/images/projects/hdepenses-main.jpg", // AJOUTEZ
-      images: ["/images/projects/hdepenses-1.jpg", "/images/projects/hdepenses-2.jpg"], // AJOUTEZ
+      image: "/images/projects/accueil 1.png", // AJOUTEZ
+      images: ["/images/projects/accueil 1.png", "/images/projects/accueil 2.png", "/images/projects/categorie 1.png"], // AJOUTEZ
       
       description: "Conception et réalisation d'une application mobile pour la gestion de dépenses mensuelles.",
       technologies: ["Flutter", "SqlLite", "MySQL"],
