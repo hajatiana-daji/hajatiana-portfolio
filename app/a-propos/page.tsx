@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { portfolioData } from '@/data/portfolio-data';
-import { Mail, Phone, MapPin, Calendar, Award, Code, Target, Heart, Rocket, Users, TrendingUp, Lightbulb } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     url: 'https://hajatiana.vercel.app/a-propos',
   },
 };
-
 
 export default function AProposPage() {
   return (
@@ -36,10 +35,12 @@ export default function AProposPage() {
                   height={200}
                   className="rounded-2xl object-cover border-4 border-blue-500 shadow-xl"
                 />
-                <div className="absolute -bottom-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
-                  <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                  Disponible
-                </div>
+                {portfolioData.profileExtra?.available && (
+                  <div className="absolute -bottom-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
+                    <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                    Disponible
+                  </div>
+                )}
               </div>
 
               {/* Intro */}
@@ -58,220 +59,204 @@ export default function AProposPage() {
           </div>
 
           {/* Mon parcours */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-              <div className="w-1 h-10 bg-blue-600 rounded"></div>
-              Mon parcours
-            </h2>
-            <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Fort de plusieurs années d'expérience dans le développement logiciel, je me suis spécialisé
-                dans la conception et la réalisation d'applications web et mobiles modernes. Mon approche
-                allie expertise technique, vision produit et sens du management.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                De la conception de l'architecture à la livraison du produit final, j'accompagne les projets
-                à chaque étape en garantissant qualité, performance et maintenabilité du code.
-              </p>
+          {portfolioData.profileExtra?.parcours && (
+            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <div className="w-1 h-10 bg-blue-600 rounded"></div>
+                Mon parcours
+              </h2>
+              <div className="prose prose-lg max-w-none space-y-4">
+                {portfolioData.profileExtra.parcours.map((item, index) => (
+                  <p key={index} className="text-gray-700 leading-relaxed">
+                    {item}
+                  </p>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Ce qui me caractérise */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-600">
-              <div className="flex items-center gap-3 mb-3">
-                <Code className="text-blue-600" size={28} />
-                <h3 className="text-xl font-bold text-gray-900">Excellence technique</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Maîtrise approfondie des technologies modernes, architecture logicielle solide
-                et clean code pour des applications performantes et maintenables.
-              </p>
-            </div>
+            {portfolioData.characteristics.map((char, index) => {
+              const Icon = char.icon;
+              const colorClasses = {
+                blue: 'border-blue-600 text-blue-600',
+                green: 'border-green-600 text-green-600',
+                purple: 'border-purple-600 text-purple-600',
+                orange: 'border-orange-600 text-orange-600',
+              }[char.color] || 'border-gray-600 text-gray-600';
 
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-green-600">
-              <div className="flex items-center gap-3 mb-3">
-                <Users className="text-green-600" size={28} />
-                <h3 className="text-xl font-bold text-gray-900">Leadership technique</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Capacité à piloter des équipes de développement, coordonner les efforts et
-                garantir l'atteinte des objectifs dans les délais.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-600">
-              <div className="flex items-center gap-3 mb-3">
-                <Target className="text-purple-600" size={28} />
-                <h3 className="text-xl font-bold text-gray-900">Vision produit</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Compréhension fine des besoins métier et capacité à traduire les exigences
-                fonctionnelles en solutions techniques adaptées.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-orange-600">
-              <div className="flex items-center gap-3 mb-3">
-                <Lightbulb className="text-orange-600" size={28} />
-                <h3 className="text-xl font-bold text-gray-900">Innovation continue</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Veille technologique constante et capacité à intégrer les meilleures pratiques
-                et technologies émergentes dans les projets.
-              </p>
-            </div>
+              return (
+                <div key={index} className={`bg-white p-6 rounded-xl shadow-lg border-l-4 ${colorClasses.split(' ')[0]}`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <Icon className={colorClasses.split(' ')[1]} size={28} />
+                    <h3 className="text-xl font-bold text-gray-900">{char.title}</h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    {char.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
           {/* Ce qui me motive */}
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-              <Heart className="text-red-500" size={32} />
+              <span className="text-red-500">❤️</span>
               Ce qui me motive
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Rocket className="text-blue-600" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Créer des solutions impactantes</h4>
-                  <p className="text-gray-600 text-sm">
-                    Développer des applications qui résolvent de vrais problèmes et améliorent
-                    le quotidien des utilisateurs.
-                  </p>
-                </div>
-              </div>
+              {portfolioData.motivations.map((motivation, index) => {
+                const Icon = motivation.icon;
+                const bgColorClasses = {
+                  blue: 'bg-blue-100 text-blue-600',
+                  green: 'bg-green-100 text-green-600',
+                  purple: 'bg-purple-100 text-purple-600',
+                  orange: 'bg-orange-100 text-orange-600',
+                }[motivation.bg] || 'bg-gray-100 text-gray-600';
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-                  <TrendingUp className="text-green-600" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Progresser continuellement</h4>
-                  <p className="text-gray-600 text-sm">
-                    Apprendre de nouvelles technologies, améliorer mes compétences et
-                    relever des défis techniques stimulants.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
-                  <Users className="text-purple-600" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Travailler en équipe</h4>
-                  <p className="text-gray-600 text-sm">
-                    Collaborer avec des profils variés, partager mes connaissances et
-                    apprendre des autres.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
-                  <Award className="text-orange-600" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Viser l'excellence</h4>
-                  <p className="text-gray-600 text-sm">
-                    Produire du code de qualité, suivre les meilleures pratiques et
-                    livrer des projets dont je suis fier.
-                  </p>
-                </div>
-              </div>
+                return (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className={`w-10 h-10 rounded-full ${bgColorClasses.split(' ')[0]} flex items-center justify-center flex-shrink-0`}>
+                      <Icon className={bgColorClasses.split(' ')[1]} size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-1">{motivation.title}</h4>
+                      <p className="text-gray-600 text-sm">
+                        {motivation.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* Expérience professionnelle */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-              <Calendar className="text-indigo-600" size={32} />
-              Expérience professionnelle
-            </h2>
-            <div className="space-y-6">
-              {/* Vous pouvez ajouter vos expériences ici */}
-              <div className="border-l-4 border-blue-600 pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
-                  Responsable Technique & Développeur Full Stack
-                </h3>
-                <p className="text-blue-600 font-medium mb-2">CELAVI | Juillet 2023 - Aujourd'hui</p>
-                <p className="text-gray-600 leading-relaxed">
-                  Pilotage technique du projet CELAVI Gestion, développement d'une plateforme
-                  de gestion locative complète avec CodeIgniter, MySQL et intégration de
-                  multiples modules métier.
-                </p>
-              </div>
+          {portfolioData.experiences && portfolioData.experiences.length > 0 && (
+            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <span className="text-indigo-600">📅</span>
+                Expérience professionnelle
+              </h2>
+              <div className="space-y-6">
+                {portfolioData.experiences.map((exp, index) => {
+                  const borderColorClasses = {
+                    blue: 'border-blue-600',
+                    green: 'border-green-600',
+                    purple: 'border-purple-600',
+                    orange: 'border-orange-600',
+                    indigo: 'border-indigo-600',
+                    gray: 'border-gray-600',
+                  }[exp.color] || 'border-gray-600';
 
-              {/* Ajoutez d'autres expériences si nécessaire */}
+                  const textColorClasses = {
+                    blue: 'text-blue-600',
+                    green: 'text-green-600',
+                    purple: 'text-purple-600',
+                    orange: 'text-orange-600',
+                    indigo: 'text-indigo-600',
+                    gray: 'text-gray-600',
+                  }[exp.color] || 'text-gray-600';
+
+                  const bgColorClasses = {
+                    blue: 'bg-blue-50',
+                    green: 'bg-green-50',
+                    purple: 'bg-purple-50',
+                    orange: 'bg-orange-50',
+                    indigo: 'bg-indigo-50',
+                    gray: 'bg-gray-50',
+                  }[exp.color] || 'bg-gray-50';
+
+                  return (
+                    <div key={index} className={`border-l-4 ${borderColorClasses} pl-6`}>
+                      <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        {exp.title}
+                      </h3>
+                      <p className={`${textColorClasses} font-medium mb-2`}>
+                        {exp.company} | {exp.date}
+                      </p>
+                      <p className="text-gray-600 leading-relaxed mb-3">
+                        {exp.description}
+                      </p>
+                      
+                      {/* Skills - si présents */}
+                      {exp.skills && exp.skills.length > 0 && (
+                        <div className="mt-3">
+                          <p className="text-sm font-semibold text-gray-700 mb-2">
+                            Compétences développées :
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.skills.map((skill, skillIndex) => (
+                              <span 
+                                key={skillIndex} 
+                                className={`${bgColorClasses} ${textColorClasses} px-3 py-1 rounded-full text-xs font-medium border border-current`}
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Formation académique */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-              <Award className="text-blue-600" size={32} />
-              Formation académique
-            </h2>
-            <div className="space-y-6">
-              {/* Master */}
-              <div className="border-l-4 border-blue-600 pl-6 relative">
-                <div className="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full border-4 border-white"></div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
-                  Master Professionnel en Informatique
-                </h3>
-                <p className="text-blue-600 font-medium mb-2">
-                  École Nationale d'Informatique (ENI) | 2020 - 2022
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Équivalent diplôme d'ingénieur en informatique. Formation approfondie en
-                  génie logiciel, architecture des systèmes, gestion de projets informatiques
-                  et développement d'applications.
-                </p>
-              </div>
+          {portfolioData.education && portfolioData.education.length > 0 && (
+            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <span className="text-blue-600">🎓</span>
+                Formation académique
+              </h2>
+              <div className="space-y-6">
+                {portfolioData.education.map((edu, index) => {
+                  const borderColorClasses = {
+                    blue: 'border-blue-600 bg-blue-600',
+                    green: 'border-green-600 bg-green-600',
+                    purple: 'border-purple-600 bg-purple-600',
+                    orange: 'border-orange-600 bg-orange-600',
+                  }[edu.color] || 'border-gray-600 bg-gray-600';
 
-              {/* Licence */}
-              <div className="border-l-4 border-green-600 pl-6 relative">
-                <div className="absolute -left-3 top-0 w-6 h-6 bg-green-600 rounded-full border-4 border-white"></div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
-                  Licence Professionnelle en Informatique
-                </h3>
-                <p className="text-green-600 font-medium mb-2">
-                  École Nationale d'Informatique (ENI) | 2017 - 2020
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Formation en développement logiciel, bases de données, réseaux et
-                  systèmes d'exploitation. Acquisition des fondamentaux du développement
-                  web et mobile.
-                </p>
-              </div>
+                  const textColorClasses = {
+                    blue: 'text-blue-600',
+                    green: 'text-green-600',
+                    purple: 'text-purple-600',
+                    orange: 'text-orange-600',
+                  }[edu.color] || 'text-gray-600';
 
-              {/* Baccalauréat */}
-              <div className="border-l-4 border-purple-600 pl-6 relative">
-                <div className="absolute -left-3 top-0 w-6 h-6 bg-purple-600 rounded-full border-4 border-white"></div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
-                  Baccalauréat Série D (Sciences expérimentales)
-                </h3>
-                <p className="text-purple-600 font-medium mb-2">
-                  Lycée Ambatofinandrahana | 2013 - 2016
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Formation scientifique avec spécialisation en mathématiques, physique,
-                  chimie et sciences de la vie et de la terre.
-                </p>
+                  return (
+                    <div key={index} className={`border-l-4 ${borderColorClasses.split(' ')[0]} pl-6 relative`}>
+                      <div className={`absolute -left-3 top-0 w-6 h-6 ${borderColorClasses.split(' ')[1]} rounded-full border-4 border-white`}></div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        {edu.degree}
+                      </h3>
+                      <p className={`${textColorClasses} font-medium mb-2`}>
+                        {edu.school} | {edu.date}
+                      </p>
+                      <p className="text-gray-600 leading-relaxed">
+                        {edu.description}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          </div>
+          )}
 
           {/* CTA Contact */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl shadow-xl p-8">
             <div className="text-center mb-6">
               <h2 className="text-3xl font-bold mb-3">Travaillons ensemble !</h2>
-              <p className="text-lg text-blue-100">
-                Je suis ouvert à de nouvelles opportunités professionnelles et à des collaborations
-                sur des projets passionnants.
-              </p>
+              {portfolioData.profileExtra?.ctaText && (
+                <p className="text-lg text-blue-100">
+                  {portfolioData.profileExtra.ctaText}
+                </p>
+              )}
             </div>
 
             <div className="flex flex-wrap justify-center gap-4">

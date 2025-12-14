@@ -1,7 +1,9 @@
+import { Award, Code2 as Code, Lightbulb, Mail, Phone, Rocket, Target, TrendingUp, Users } from "lucide-react";
+
 export interface Project {
   id: string;
   title: string;
-  type : string;
+  type: string;
   role: string;
   client: string;
   description: string;
@@ -39,6 +41,17 @@ export interface PortfolioData {
     architecture_conception: string[];
     gestion_pilotage_technique: string[];
   };
+  characteristics: { title: string; description: string; icon: any; color: string }[];
+  motivations: { title: string; description: string; icon: any; color: string; bg: string }[];
+  experiences: { title: string; company: string; date: string; description: string; color: string; skills: string[] }[];
+  education: { degree: string; school: string; date: string; description: string; color: string }[];
+  contacts: { type: 'email' | 'phone'; value: string; icon: any }[];
+  profileExtra?: {
+    available?: boolean;
+    parcours?: string[];
+    ctaText?: string;
+  }
+
 }
 
 export const portfolioData: PortfolioData = {
@@ -57,7 +70,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "1",
       title: "Application Mobile - Hdepenses",
-      type : "Mobile",
+      type: "Mobile",
       role: "Concepteur | Développeur",
       client: "Projet personnel", // AJOUTEZ
       image: "/images/projects/accueil 1.png", // AJOUTEZ
@@ -88,7 +101,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "2",
       title: "Application web",
-      type : "Web",
+      type: "Web",
       role: "Chef de Projet",
       client: "Groupe MANAO", // NOUVEAU
       image: "/images/projects/celavi-main.jpg", // NOUVEAU
@@ -118,7 +131,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "3",
       title: "Application Mobile",
-      type : "Mobile",
+      type: "Mobile",
       role: "Concepteur | Développeur",
       client: "Client privé", // AJOUTEZ
       image: "/images/projects/hiraparti-main.jpg", // AJOUTEZ
@@ -148,7 +161,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "4",
       title: "Application web",
-      type : "Web",
+      type: "Web",
       role: "Chef de Projet",
       client: "Groupe MANAO", // NOUVEAU
       image: "/images/projects/repairsoft-main.jpg", // NOUVEAU
@@ -177,7 +190,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "5",
       title: "Plateforme web LMNP",
-      type : "Web",
+      type: "Web",
       role: "Chef de Projet",
       client: "Client privé",
       image: "/images/projects/lmnp-main.jpg",
@@ -207,7 +220,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "6",
       title: "Application Mobile – Portail Salarié",
-      type : "Mobile",
+      type: "Mobile",
       role: "Développeur Mobile",
       client: "Client entreprise",
       image: "/images/projects/portail-salarie-main.jpg",
@@ -245,7 +258,7 @@ export const portfolioData: PortfolioData = {
     , {
       id: "7",
       title: "Application Mobile GPMIL",
-      type : "Mobile",
+      type: "Mobile",
       role: "Concepteur | Développeur",
       client: "Projet institutionnel",
       image: "/images/projects/gpmil-main.jpg",
@@ -277,7 +290,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "8",
       title: "Application web – Commande de robots de peinture",
-      type : "Web",
+      type: "Web",
       role: "Chef de Projet",
       client: "Client industriel",
       image: "/images/projects/robot-paint-main.jpg",
@@ -315,11 +328,99 @@ export const portfolioData: PortfolioData = {
   stack: {
     languages: ["PHP", "JavaScript", "TypeScript", "Dart", "Python", "Java", "C/C#", "SQL"],
     technologies_frameworks: [
-      "React", "Next.js", "Flutter", "Laravel", "CodeIgniter","Symfony", "Node.js"
+      "React", "Next.js", "Flutter", "Laravel", "CodeIgniter", "Symfony", "Node.js"
     ],
     databases: ["MySQL", "PostgreSQL", "SQLite", "Redis", "SQL Server"],
     outils: ["Git", "Postman", "Jira", "dbeaver", "navicat", "Android Studio"],
     architecture_conception: ["Architecture logicielle", "Design Patterns", "API REST", "GraphQL", "Clean Code", "Clean Architecture"],
     gestion_pilotage_technique: ["Analyse des besoins", "Conception fonctionnelle", "Gestion d’équipe (développeurs)", "Méthodes Agile / Scrum", "Suivi et pilotage de projets"]
-  }
+  },
+  profileExtra: {
+    available: true,
+    parcours: [
+      "Plusieurs années d'expérience en développement web et mobile.", // ok
+      "Expertise en architecture logicielle et clean code.",
+      "Accompagnement complet des projets, de la conception à la livraison."
+    ],
+    ctaText: "Je suis ouvert à de nouvelles opportunités professionnelles et collaborations sur des projets passionnants."
+  },
+  characteristics: [
+    { title: "Excellence technique", description: "Maîtrise approfondie des technologies modernes et clean code.", icon: Code, color: "blue" },
+    { title: "Leadership technique", description: "Capacité à piloter des équipes et garantir les objectifs.", icon: Users, color: "green" },
+    { title: "Vision produit", description: "Compréhension des besoins métier et traduction en solutions techniques.", icon: Target, color: "purple" },
+    { title: "Innovation continue", description: "Veille technologique constante et intégration des meilleures pratiques.", icon: Lightbulb, color: "orange" },
+  ],
+  motivations: [
+    { title: "Créer des solutions impactantes", description: "Développer des applications qui améliorent le quotidien des utilisateurs.", icon: Rocket, color: "blue", bg: "blue" },
+    { title: "Progresser continuellement", description: "Apprendre de nouvelles technologies et relever des défis techniques stimulants.", icon: TrendingUp, color: "green", bg: "green" },
+    { title: "Travailler en équipe", description: "Collaborer avec des profils variés et partager mes connaissances.", icon: Users, color: "purple", bg: "purple" },
+    { title: "Viser l'excellence", description: "Produire du code de qualité et livrer des projets dont je suis fier.", icon: Award, color: "orange", bg: "orange" },
+  ],
+  experiences: [
+    {
+      title: "Chef d’équipe",
+      company: "Manao Logiciels",
+      date: "Oct. 2025 - Aujourd'hui",
+      description: "En tant que Chef d’équipe pour 9 projets d'un client, impliquant deux développeurs et un testeur : garantir la qualité des livrables, coordonner l’équipe, participer aux réunions hebdomadaires avec le client.",
+      skills: ["JIRA", "Leadership d’équipe", "Sens de l’organisation", "Méthodes agiles"],
+      color: "blue"
+    },
+    {
+      title: "Chef de projet",
+      company: "Manao Logiciels",
+      date: "Juil. 2023 - Aujourd'hui",
+      description: "Gestion de trois applications web avec une équipe de deux développeurs : analyse des demandes, suivi de l’avancement, revue de code, supervision des mises en production et résolution des tâches critiques.",
+      skills: ["MySQL", "CodeIgniter", "Next.js", "Gestion de projet agile", "jQuery", "AJAX", "Git", "API REST", "Node.js", "Conception de logiciels"],
+      color: "green"
+    },
+    {
+      title: "Chef de projet",
+      company: "SIDINA (Groupe MANAO)",
+      date: "Juil. 2023 - Mars 2025",
+      description: "Gestion d'une plateforme web pour les métiers du corrisier : communication avec le client, supervision de la maintenance et des nouvelles fonctionnalités, optimisation du code et encadrement d’une équipe de 6 personnes.",
+      skills: ["Gestion de projet agile", "Git", "Clean code", "Conception de bases de données", "API REST", "Gestion des priorités"],
+      color: "purple"
+    },
+    {
+      title: "Responsable technique de l’AO et l’AMI",
+      company: "Manao Logiciels",
+      date: "Mai 2023 - Déc. 2023",
+      description: "Collaboration avec les équipes internes pour les appels d’offres et manifestations d’intérêt : rédaction des documents techniques, évaluation des soumissions et reporting à la direction.",
+      skills: ["Gestion de projet agile", "Git", "Développement de logiciels", "Conception de logiciels"],
+      color: "orange"
+    },
+    {
+      title: "Responsable de projets",
+      company: "Manao Logiciels",
+      date: "Avr. 2023 - Juil. 2023",
+      description: "Coordination des projets Gestion, Commercial-Ventes et Communication : encadrement des équipes, formation, gestion des demandes d’évolution fonctionnelle et suivi régulier des projets.",
+      skills: ["Développement d’applications mobiles", "Gestion de projet agile", "Git", "Développement de logiciels", "Conception de logiciels"],
+      color: "teal"
+    },
+    {
+      title: "Développeur web et mobile",
+      company: "Manao Logiciels",
+      date: "Oct. 2022 - Avr. 2023",
+      description: "Développement et maintenance de plusieurs applications Web et mobile, dont PAIE France, Paie Mada et l’application mobile 'Bulletins'.",
+      skills: ["PHP", "Développement d’applications mobiles", "Git", "JavaScript", "Développement de logiciels", "Flutter", "Conception de logiciels"],
+      color: "red"
+    },
+    {
+      title: "Stagiaire développeur",
+      company: "Manao Logiciels / ENI Fianarantsoa",
+      date: "Avr. 2022 - Oct. 2022",
+      description: "Préparation du mémoire de fin d’études et développement de l’application mobile 'Bulletins', disponible sur le Play Store.",
+      skills: ["PHP", "MySQL", "CodeIgniter", "Git", "Développement de logiciels", "Dart", "Flutter"],
+      color: "gray"
+    }
+  ],
+  education: [
+    { degree: "Master Professionnel en Informatique", school: "École Nationale d'Informatique (ENI)", date: "2020 - 2022", description: "Formation approfondie en génie logiciel et développement d'applications.", color: "blue" },
+    { degree: "Licence Professionnelle en Informatique", school: "École Nationale d'Informatique (ENI)", date: "2017 - 2020", description: "Bases solides en développement web et mobile.", color: "green" },
+    { degree: "Baccalauréat Série D (Sciences expérimentales)", school: "Lycée Ambatofinandrahana", date: "2013 - 2016", description: "Spécialisation en mathématiques, physique, chimie et sciences de la vie.", color: "purple" },
+  ],
+  contacts: [
+    { type: "email", value: "hajatiana@example.com", icon: Mail },
+    { type: "phone", value: "+261 34 12 345 67", icon: Phone },
+  ],
 };
