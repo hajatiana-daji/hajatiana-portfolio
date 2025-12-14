@@ -92,7 +92,7 @@ export const portfolioData: PortfolioData = {
       description: "Conception et réalisation d'une application mobile pour la gestion de dépenses mensuelles.",
       technologies: ["Flutter", "SqlLite", "MySQL"],
       date: "Oct 2025 - aujourd'hui",
-      team: ["2 Développeurs", "1 Product Owner"],
+      team: ["1 Développeur"],
       details: {
         context: "Développement d'une application mobile pour aider les utilisateurs à suivre leurs dépenses.",
         responsibilities: [
@@ -108,7 +108,7 @@ export const portfolioData: PortfolioData = {
           "Développement du système de catégorisation automatique des dépenses",
           "Création de graphiques et statistiques de dépenses"
         ],
-        results: "Application déployée avec 5000+ téléchargements en 2 mois."
+        results: "Application en test Beta avec retours positifs des 10+ utilisateurs."
       }
     },
 
