@@ -79,7 +79,7 @@ export const portfolioData: PortfolioData = {
       description: "Conception et réalisation d'une application mobile pour la gestion de dépenses mensuelles.",
       technologies: ["Flutter", "SqlLite", "MySQL", "Git"],
       date: "Oct 2025 - aujourd'hui",
-      team: ["1 Développeur"],
+      team: ["Concepteur | Développeur"],
       details: {
         context: "Développement d'une application mobile pour aider les utilisateurs à suivre leurs dépenses.",
         responsibilities: [
@@ -100,7 +100,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "2",
-      title: "Application web",
+      title: "Application web - CLV Gestion",
       type: "Web",
       role: "Chef de Projet",
       client: "Groupe MANAO", // NOUVEAU
@@ -109,7 +109,7 @@ export const portfolioData: PortfolioData = {
       description: "Développement et maintenance d'une plateforme de gestion locative.",
       technologies: ["MySQL", "Bootstrap", "jQuery", "Git", "API REST", "CodeIgniter (PHP)", "Ajax"],
       date: "Juillet 2023 - Aujourd'hui",
-      team: ["3 Développeurs", "1 Chef de projet", "1 Product Owner", "1 Scrum Master"],
+      team: ["Développeur fullstack 1","Développeur fullstack 2", "Chef de projet", "Product Owner", "Scrum Master"],
       details: {
         context: "Mon arrivée dans une équipe existante pour piloter le projet et améliorer la plateforme.",
         missions: [
@@ -130,7 +130,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "3",
-      title: "Application Mobile",
+      title: "Application Mobile - HPARTI",
       type: "Mobile",
       role: "Concepteur | Développeur",
       client: "Client privé", // AJOUTEZ
@@ -139,7 +139,7 @@ export const portfolioData: PortfolioData = {
       description: "Conception et réalisation d'une application mobile pour les groupes de musique ou chorales .",
       technologies: ["Flutter", "SqlLite", "MySQL", "Git"],
       date: "Aout 2025 - Oct 2025",
-      team: ["1 Concepteur | Développeur"],
+      team: ["Concepteur | Développeur"],
       details: {
         context: "Une application mobile permetant aux utilisateurs de gérer, consulter et partager des partitions musicales de manière collaborative et sécurisée",
         responsibilities: [
@@ -160,7 +160,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "4",
-      title: "Application web",
+      title: "Application web - RSOFT",
       type: "Web",
       role: "Chef de Projet",
       client: "Groupe MANAO", // NOUVEAU
@@ -169,7 +169,7 @@ export const portfolioData: PortfolioData = {
       description: "Développement et maintenance d'une plateforme web pour la gestion de carrosserie.",
       technologies: ["MySQL", "Bootstrap", "jQuery", "Git", "API REST", "CodeIgniter (PHP)", "Ajax"],
       date: "Juillet 2023 - Juin 2025",
-      team: ["2 Techniciens d'assistance", "4 Développeurs", "1 Chef de projet", "1 Product Owner", "1 Scrum Master"],
+      team: ["Technicien d'assistance 1", "Technicien d'assistance 2","Développeur Fullstack 1","Développeur Fullstack 2","Développeur Fullstack 3","Développeur Fullstack 4", "Chef de projet", "Product Owner", "Scrum Master"],
       details: {
         context: "Une grande plateforme de gestion de carrosserie pour les ateliers de réparation automobile. J'ai rejoint l'équipe en tant que chef de projet pour superviser le développement et la maintenance de la plateforme et surtout apporter des optimisations techniques (optimisation du code et base de données).",
         responsibilities: [
@@ -189,7 +189,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "5",
-      title: "Plateforme web LMNP",
+      title: "Plateforme web - CLV LMNP",
       type: "Web",
       role: "Chef de Projet",
       client: "Client privé",
@@ -201,7 +201,7 @@ export const portfolioData: PortfolioData = {
       description: "Développement d’une plateforme web dédiée à la revente de biens en LMNP sous bail commercial.",
       technologies: ["CodeIgniter (PHP)", "Redis", "MySQL", "jQuery", "Bootstrap", "Ajax", "Git"],
       date: "Juillet 2023 - Aujourd'hui",
-      team: ["2 Développeurs", "1 Chef de projet", "1 Product Owner", "1 Scrum Master"],
+      team: ["Développeur FullStack 1","Développeur FullStack 2", "Chef de projet", "Product Owner", "Scrum Master"],
       details: {
         context: "Plateforme destinée à centraliser et automatiser la gestion de biens immobiliers LMNP pour des investisseurs.",
         responsibilities: [
@@ -232,10 +232,7 @@ export const portfolioData: PortfolioData = {
       technologies: ["Flutter", "API REST", "MySQL", "Git"],
       date: "Avril 2022 - Octobre 2022",
       team: [
-        "1 Développeur",
-        "1 Designer",
-        "2 Testeurs",
-        "1 Product Owner"
+        "Développeur Mobile","Développeur Backend","Designer","Testeur 1","Testeur 1","Product Owner"
       ],
       details: {
         context: "Digitalisation de l’accès aux informations RH pour les salariés via une application mobile sécurisée.",
@@ -270,7 +267,7 @@ export const portfolioData: PortfolioData = {
       technologies: ["Flutter", "SQLite", "MySQL", "Git"],
       date: "Novembre 2025 - Aujourd'hui",
       team: [
-        "1 Concepteur | Développeur",
+        "Concepteur | Développeur",
       ],
       details: {
         context: "Conception d’une application centralisant toutes les informations administratives et professionnelles du personnel militaire.",
@@ -289,7 +286,7 @@ export const portfolioData: PortfolioData = {
     ,
     {
       id: "8",
-      title: "Application web – Commande de robots de peinture",
+      title: "Application web – PaintGo",
       type: "Web",
       role: "Chef de Projet",
       client: "Client industriel",
@@ -302,9 +299,9 @@ export const portfolioData: PortfolioData = {
       technologies: ["CodeIgniter (PHP)", "MySQL", "Ajax", "Bootstrap", "jQuery"],
       date: "Mai 2025 - Aujourd'hui",
       team: [
-        "1 Développeur",
-        "1 Chef de projet",
-        "1 Product Owner"
+        "Développeur",
+        "Chef de projet",
+        "Product Owner"
       ],
       details: {
         context: "Besoin d’un outil centralisé pour gérer les commandes, le suivi et la configuration de robots industriels.",
@@ -375,7 +372,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Chef de projet",
-      company: "SIDINA (Groupe MANAO)",
+      company: "Manao Logiciels",
       date: "Juil. 2023 - Mars 2025",
       description: "Gestion d'une plateforme web pour les métiers du corrisier : communication avec le client, supervision de la maintenance et des nouvelles fonctionnalités, optimisation du code et encadrement d’une équipe de 6 personnes.",
       skills: ["Gestion de projet agile", "Git", "Clean code", "Conception de bases de données", "API REST", "Gestion des priorités"],

@@ -78,11 +78,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </h3>
 
         {/* Client */}
-        {project.client && (
+        {/* {project.client && (
           <p className="text-sm text-gray-500 mt-1">
             Client : {project.client}
           </p>
-        )}
+        )} */}
       </div>
 
       {/* Contenu */}

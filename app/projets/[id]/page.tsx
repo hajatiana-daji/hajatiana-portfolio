@@ -118,14 +118,14 @@ export default function ProjectDetailPage({
 
               <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-center">{project.title}</h1>
 
-              {project.client && (
+              {/* {project.client && (
                 <p className="text-lg md:text-xl flex items-center gap-2 mb-6 text-white/90">
                   <Briefcase size={20} />
                   Client : <span className="font-semibold">{project.client}</span>
                 </p>
-              )}
+              )} */}
 
-              <span className="inline-block bg-white text-blue-600 px-6 py-3 rounded-2xl text-base font-bold shadow-xl">{project.role}</span>
+              <span className="inline-block bg-white text-blue-600 px-6 py-3 rounded-2xl text-base font-bold shadow-xl">Mon role : {project.role}</span>
             </div>
           </div>
 
