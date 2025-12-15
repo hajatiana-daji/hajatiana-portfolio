@@ -16,7 +16,7 @@ export interface Project {
     context: string;
     responsibilities: string[];
     results: string;
-    missions: string[]; // NOUVEAU - résumé des missions
+    missions: string[];
   };
 }
 
@@ -50,8 +50,11 @@ export interface PortfolioData {
     available?: boolean;
     parcours?: string[];
     ctaText?: string;
-  }
-
+  };
+  divers?: {
+    title: string;
+    items: { label: string; description: string; period?: string }[];
+  };
 }
 
 export const portfolioData: PortfolioData = {
@@ -72,10 +75,9 @@ export const portfolioData: PortfolioData = {
       title: "Application Mobile - Hdepenses",
       type: "Mobile",
       role: "Concepteur | Développeur",
-      client: "Projet personnel", // AJOUTEZ
-      image: "/images/projects/accueil 1.png", // AJOUTEZ
-      images: ["/images/projects/accueil 1.png", "/images/projects/accueil 2.png", "/images/projects/categorie 1.png"], // AJOUTEZ
-
+      client: "Projet personnel",
+      image: "/images/projects/accueil 1.png",
+      images: ["/images/projects/accueil 1.png", "/images/projects/accueil 2.png", "/images/projects/categorie 1.png"],
       description: "Conception et réalisation d'une application mobile pour la gestion de dépenses mensuelles.",
       technologies: ["Flutter", "SqlLite", "MySQL", "Git"],
       date: "Oct 2025 - aujourd'hui",
@@ -88,7 +90,7 @@ export const portfolioData: PortfolioData = {
           "Création des dashboards analytiques",
           "Tests et optimisation des performances"
         ],
-        missions: [ // AJOUTEZ
+        missions: [
           "Analyse des besoins et conception fonctionnelle",
           "Développement de l'interface utilisateur avec Flutter",
           "Implémentation de la gestion des données avec SQLite",
@@ -103,9 +105,9 @@ export const portfolioData: PortfolioData = {
       title: "Application web - CLV Gestion",
       type: "Web",
       role: "Chef de Projet",
-      client: "Groupe MANAO", // NOUVEAU
-      image: "/images/projects/celavi-main.jpg", // NOUVEAU
-      images: ["/images/projects/celavi-1.jpg", "/images/projects/celavi-2.jpg"], // NOUVEAU
+      client: "Groupe MANAO",
+      image: "/images/projects/celavi-main.jpg",
+      images: ["/images/projects/celavi-1.jpg", "/images/projects/celavi-2.jpg"],
       description: "Développement et maintenance d'une plateforme de gestion locative.",
       technologies: ["MySQL", "Bootstrap", "jQuery", "Git", "API REST", "CodeIgniter (PHP)", "Ajax"],
       date: "Juillet 2023 - Aujourd'hui",
@@ -119,7 +121,7 @@ export const portfolioData: PortfolioData = {
           "Révision du code et assurance qualité",
           "Relations avec le client"
         ],
-        responsibilities: [ // NOUVEAU
+        responsibilities: [
           "Architecture et conception de la base de données",
           "Développement des modules de gestion locative",
           "Mise en place du système d'authentification",
@@ -133,9 +135,9 @@ export const portfolioData: PortfolioData = {
       title: "Application Mobile - HPARTI",
       type: "Mobile",
       role: "Concepteur | Développeur",
-      client: "Client privé", // AJOUTEZ
-      image: "/images/projects/hiraparti-main.jpg", // AJOUTEZ
-      images: ["/images/projects/hiraparti-1.jpg", "/images/projects/hiraparti-2.jpg"], // AJOUTEZ
+      client: "Client privé",
+      image: "/images/projects/hiraparti-main.jpg",
+      images: ["/images/projects/hiraparti-1.jpg", "/images/projects/hiraparti-2.jpg"],
       description: "Conception et réalisation d'une application mobile pour les groupes de musique ou chorales .",
       technologies: ["Flutter", "SqlLite", "MySQL", "Git"],
       date: "Aout 2025 - Oct 2025",
@@ -148,7 +150,7 @@ export const portfolioData: PortfolioData = {
           "Implémentation du système d'authentification",
           "Développement du système de partage de partitions"
         ],
-        missions: [ // AJOUTEZ
+        missions: [
           "Analyse des besoins et conception fonctionnelle",
           "Développement de l'interface utilisateur avec Flutter",
           "Implémentation de la gestion des données avec SQLite",
@@ -163,9 +165,9 @@ export const portfolioData: PortfolioData = {
       title: "Application web - RSOFT",
       type: "Web",
       role: "Chef de Projet",
-      client: "Groupe MANAO", // NOUVEAU
-      image: "/images/projects/repairsoft-main.jpg", // NOUVEAU
-      images: ["/images/projects/repairsoft-1.jpg", "/images/projects/repairsoft-2.jpg"], // NOUVEAU
+      client: "Groupe MANAO",
+      image: "/images/projects/repairsoft-main.jpg",
+      images: ["/images/projects/repairsoft-1.jpg", "/images/projects/repairsoft-2.jpg"],
       description: "Développement et maintenance d'une plateforme web pour la gestion de carrosserie.",
       technologies: ["MySQL", "Bootstrap", "jQuery", "Git", "API REST", "CodeIgniter (PHP)", "Ajax"],
       date: "Juillet 2023 - Juin 2025",
@@ -198,14 +200,14 @@ export const portfolioData: PortfolioData = {
         "/images/projects/lmnp-1.jpg",
         "/images/projects/lmnp-2.jpg"
       ],
-      description: "Développement d’une plateforme web dédiée à la revente de biens en LMNP sous bail commercial.",
+      description: "Développement d'une plateforme web dédiée à la revente de biens en LMNP sous bail commercial.",
       technologies: ["CodeIgniter (PHP)", "Redis", "MySQL", "jQuery", "Bootstrap", "Ajax", "Git"],
       date: "Juillet 2023 - Aujourd'hui",
       team: ["Développeur FullStack 1","Développeur FullStack 2", "Chef de projet", "Product Owner", "Scrum Master"],
       details: {
         context: "Plateforme destinée à centraliser et automatiser la gestion de biens immobiliers LMNP pour des investisseurs.",
         responsibilities: [
-          "Pilotage du projet et coordination de l’équipe",
+          "Pilotage du projet et coordination de l'équipe",
           "Développement des fonctionnalités en fonction des besoins clients",
           "Suivi de la qualité et des performances"
         ],
@@ -228,16 +230,16 @@ export const portfolioData: PortfolioData = {
         "/images/projects/portail-salarie-1.jpg",
         "/images/projects/portail-salarie-2.jpg"
       ],
-      description: "Application mobile permettant aux salariés d’accéder à leurs informations RH en toute autonomie.",
+      description: "Application mobile permettant aux salariés d'accéder à leurs informations RH en toute autonomie.",
       technologies: ["Flutter", "API REST", "MySQL", "Git"],
       date: "Avril 2022 - Octobre 2022",
       team: [
         "Développeur Mobile","Développeur Backend","Designer","Testeur 1","Testeur 1","Product Owner"
       ],
       details: {
-        context: "Digitalisation de l’accès aux informations RH pour les salariés via une application mobile sécurisée.",
+        context: "Digitalisation de l'accès aux informations RH pour les salariés via une application mobile sécurisée.",
         responsibilities: [
-          "Développement de l’application mobile",
+          "Développement de l'application mobile",
           "Intégration des API RH",
           "Collaboration avec le designer et le PO",
           "Correction des anomalies issues des phases de test"
@@ -249,10 +251,10 @@ export const portfolioData: PortfolioData = {
           "Affichage des informations personnelles et administratives",
           "Sécurisation des accès et des données"
         ],
-        results: "Application déjà sur le playstore et adoptée par les collaborateurs de l’entreprise."
+        results: "Application déjà sur le playstore et adoptée par les collaborateurs de l'entreprise."
       }
-    }
-    , {
+    },
+    {
       id: "7",
       title: "Application Mobile GPMIL",
       type: "Mobile",
@@ -270,20 +272,19 @@ export const portfolioData: PortfolioData = {
         "Concepteur | Développeur",
       ],
       details: {
-        context: "Conception d’une application centralisant toutes les informations administratives et professionnelles du personnel militaire.",
+        context: "Conception d'une application centralisant toutes les informations administratives et professionnelles du personnel militaire.",
         responsibilities: [
-          "Conception globale de l’application",
+          "Conception globale de l'application",
           "Développement mobile",
           "Structuration des données métiers",
         ],
         missions: [
-          "Conception et développement de l’application mobile avec Flutter",
+          "Conception et développement de l'application mobile avec Flutter",
           "Retour régulier au client pour validation des fonctionnalités",
         ],
         results: "Projet en cours de développement avec une base fonctionnelle stable."
       }
-    }
-    ,
+    },
     {
       id: "8",
       title: "Application web – PaintGo",
@@ -304,7 +305,7 @@ export const portfolioData: PortfolioData = {
         "Product Owner"
       ],
       details: {
-        context: "Besoin d’un outil centralisé pour gérer les commandes, le suivi et la configuration de robots industriels.",
+        context: "Besoin d'un outil centralisé pour gérer les commandes, le suivi et la configuration de robots industriels.",
         responsibilities: [
           "Développement des fonctionnalités web",
           "Analyse technique des besoins",
@@ -320,7 +321,6 @@ export const portfolioData: PortfolioData = {
         results: "Application utilisée par le client, en phase de test sans retours négatifs à ce jour."
       }
     }
-
   ],
   stack: {
     languages: ["PHP", "JavaScript", "TypeScript", "Dart", "Python", "Java", "C/C#", "SQL"],
@@ -330,12 +330,12 @@ export const portfolioData: PortfolioData = {
     databases: ["MySQL", "PostgreSQL", "SQLite", "Redis", "SQL Server"],
     outils: ["Git", "Postman", "Jira", "dbeaver", "navicat", "Android Studio"],
     architecture_conception: ["Architecture logicielle", "Design Patterns", "API REST", "GraphQL", "Clean Code", "Clean Architecture"],
-    gestion_pilotage_technique: ["Analyse des besoins", "Conception fonctionnelle", "Gestion d’équipe (développeurs)", "Méthodes Agile / Scrum", "Suivi et pilotage de projets"]
+    gestion_pilotage_technique: ["Analyse des besoins", "Conception fonctionnelle", "Gestion d'équipe (développeurs)", "Méthodes Agile / Scrum", "Suivi et pilotage de projets"]
   },
   profileExtra: {
     available: true,
     parcours: [
-      "Plusieurs années d'expérience en développement web et mobile.", // ok
+      "Plusieurs années d'expérience en développement web et mobile.",
       "Expertise en architecture logicielle et clean code.",
       "Accompagnement complet des projets, de la conception à la livraison."
     ],
@@ -355,18 +355,18 @@ export const portfolioData: PortfolioData = {
   ],
   experiences: [
     {
-      title: "Chef d’équipe",
+      title: "Chef d'équipe",
       company: "Manao Logiciels",
       date: "Oct. 2025 - Aujourd'hui",
-      description: "En tant que Chef d’équipe pour 9 projets d'un client, impliquant deux développeurs et un testeur : garantir la qualité des livrables, coordonner l’équipe, participer aux réunions hebdomadaires avec le client.",
-      skills: ["JIRA", "Leadership d’équipe", "Sens de l’organisation", "Méthodes agiles"],
+      description: "En tant que Chef d'équipe pour 9 projets d'un client, impliquant deux développeurs et un testeur : garantir la qualité des livrables, coordonner l'équipe, participer aux réunions hebdomadaires avec le client.",
+      skills: ["JIRA", "Leadership d'équipe", "Sens de l'organisation", "Méthodes agiles"],
       color: "blue"
     },
     {
       title: "Chef de projet",
       company: "Manao Logiciels",
       date: "Juil. 2023 - Aujourd'hui",
-      description: "Gestion de trois applications web avec une équipe de deux développeurs : analyse des demandes, suivi de l’avancement, revue de code, supervision des mises en production et résolution des tâches critiques.",
+      description: "Gestion de trois applications web avec une équipe de deux développeurs : analyse des demandes, suivi de l'avancement, revue de code, supervision des mises en production et résolution des tâches critiques.",
       skills: ["MySQL", "CodeIgniter", "Next.js", "Gestion de projet agile", "jQuery", "AJAX", "Git", "API REST", "Node.js", "Conception de logiciels"],
       color: "green"
     },
@@ -374,15 +374,15 @@ export const portfolioData: PortfolioData = {
       title: "Chef de projet",
       company: "Manao Logiciels",
       date: "Juil. 2023 - Mars 2025",
-      description: "Gestion d'une plateforme web pour les métiers du corrisier : communication avec le client, supervision de la maintenance et des nouvelles fonctionnalités, optimisation du code et encadrement d’une équipe de 6 personnes.",
+      description: "Gestion d'une plateforme web pour les métiers du corrisier : communication avec le client, supervision de la maintenance et des nouvelles fonctionnalités, optimisation du code et encadrement d'une équipe de 6 personnes.",
       skills: ["Gestion de projet agile", "Git", "Clean code", "Conception de bases de données", "API REST", "Gestion des priorités"],
       color: "purple"
     },
     {
-      title: "Responsable technique de l’AO et l’AMI",
+      title: "Responsable technique de l'AO et l'AMI",
       company: "Manao Logiciels",
       date: "Mai 2023 - Déc. 2023",
-      description: "Collaboration avec les équipes internes pour les appels d’offres et manifestations d’intérêt : rédaction des documents techniques, évaluation des soumissions et reporting à la direction.",
+      description: "Collaboration avec les équipes internes pour les appels d'offres et manifestations d'intérêt : rédaction des documents techniques, évaluation des soumissions et reporting à la direction.",
       skills: ["Gestion de projet agile", "Git", "Développement de logiciels", "Conception de logiciels"],
       color: "orange"
     },
@@ -390,23 +390,23 @@ export const portfolioData: PortfolioData = {
       title: "Responsable de projets",
       company: "Manao Logiciels",
       date: "Avr. 2023 - Juil. 2023",
-      description: "Coordination des projets Gestion, Commercial-Ventes et Communication : encadrement des équipes, formation, gestion des demandes d’évolution fonctionnelle et suivi régulier des projets.",
-      skills: ["Développement d’applications mobiles", "Gestion de projet agile", "Git", "Développement de logiciels", "Conception de logiciels"],
+      description: "Coordination des projets Gestion, Commercial-Ventes et Communication : encadrement des équipes, formation, gestion des demandes d'évolution fonctionnelle et suivi régulier des projets.",
+      skills: ["Développement d'applications mobiles", "Gestion de projet agile", "Git", "Développement de logiciels", "Conception de logiciels"],
       color: "teal"
     },
     {
       title: "Développeur web et mobile",
       company: "Manao Logiciels",
       date: "Oct. 2022 - Avr. 2023",
-      description: "Développement et maintenance de plusieurs applications Web et mobile, dont PAIE France, Paie Mada et l’application mobile 'Bulletins'.",
-      skills: ["PHP", "Développement d’applications mobiles", "Git", "JavaScript", "Développement de logiciels", "Flutter", "Conception de logiciels"],
+      description: "Développement et maintenance de plusieurs applications Web et mobile, dont PAIE France, Paie Mada et l'application mobile 'Bulletins'.",
+      skills: ["PHP", "Développement d'applications mobiles", "Git", "JavaScript", "Développement de logiciels", "Flutter", "Conception de logiciels"],
       color: "red"
     },
     {
       title: "Stagiaire développeur",
       company: "Manao Logiciels / ENI Fianarantsoa",
       date: "Avr. 2022 - Oct. 2022",
-      description: "Préparation du mémoire de fin d’études et développement de l’application mobile 'Bulletins', disponible sur le Play Store.",
+      description: "Préparation du mémoire de fin d'études et développement de l'application mobile 'Bulletins', disponible sur le Play Store.",
       skills: ["PHP", "MySQL", "CodeIgniter", "Git", "Développement de logiciels", "Dart", "Flutter"],
       color: "gray"
     }
@@ -420,4 +420,23 @@ export const portfolioData: PortfolioData = {
     { type: "email", value: "hajatiana@example.com", icon: Mail },
     { type: "phone", value: "+261 34 12 345 67", icon: Phone },
   ],
+  // NOUVELLE SECTION DIVERS
+  divers: {
+    title: "Centres d'intérêt & Activités",
+    items: [
+      {
+        label: "Sports pratiqués",
+        description: "Football, pétanque et autres activités sportives en équipe"
+      },
+      {
+        label: "Président d'un groupe choral",
+        description: "Direction et animation d'un ensemble vocal",
+        period: "2018 - 2022"
+      },
+      {
+        label: "Musique",
+        description: "Passionné de musique vocale et instrumentale"
+      }
+    ]
+  }
 };

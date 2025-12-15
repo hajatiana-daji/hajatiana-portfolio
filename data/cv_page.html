@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Hajatiana Danielson ANDRIANJAKA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2563eb;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #1e40af;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header .title {
+            font-size: 16px;
+            color: #4b5563;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: #1e40af;
+            font-weight: 700;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 3px;
+        }
+
+        /* Profil */
+        .profile-text {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* Expériences */
+        .experience-item {
+            margin-bottom: 18px;
+            padding-left: 15px;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .experience-header {
+            margin-bottom: 6px;
+        }
+
+        .experience-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .experience-company {
+            font-size: 13px;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .experience-date {
+            font-size: 12px;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .experience-description {
+            font-size: 12px;
+            color: #4b5563;
+            margin-top: 5px;
+            line-height: 1.6;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .skill-tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* Formation */
+        .education-item {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #10b981;
+        }
+
+        .education-degree {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .education-school {
+            font-size: 12px;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .education-date {
+            font-size: 11px;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        /* Compétences techniques */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .tech-category {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .tech-category-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 6px;
+        }
+
+        .tech-items {
+            font-size: 11px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        /* Projets clés */
+        .project-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 6px;
+            border-left: 3px solid #8b5cf6;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .project-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .project-type {
+            font-size: 11px;
+            background: #8b5cf6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .project-role {
+            font-size: 12px;
+            color: #7c3aed;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .project-description {
+            font-size: 11px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .project-tech {
+            font-size: 10px;
+            color: #6b7280;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #e5e7eb;
+            font-size: 11px;
+            color: #9ca3af;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .cv-container {
+                padding: 0;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .experience-item,
+            .education-item,
+            .project-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Hajatiana Danielson ANDRIANJAKA</h1>
+            <div class="title">Ingénieur Informatique · Spécialiste Développement Web & Mobile</div>
+            <div class="contact-info">
+                <span>📧 arias.hajatiana@gmail.com</span>
+                <span>📱 +261 34 65 511 71</span>
+                <span>💼 linkedin.com/in/hda04</span>
+                <span>🔗 github.com/hajatiana-daji</span>
+            </div>
+        </div>
+
+        <!-- PROFIL -->
+        <div class="section">
+            <div class="section-title">Profil Professionnel</div>
+            <p class="profile-text">
+                Ingénieur informatique diplômé de l'ENI avec plusieurs années d'expérience en développement web et mobile. Expert en architecture logicielle et clean code, je transforme les besoins métier en solutions techniques performantes. Ma double compétence technique et managériale me permet de piloter efficacement des projets d'envergure, de la conception à la livraison, tout en garantissant la qualité et le respect des délais.
+            </p>
+        </div>
+
+        <!-- EXPÉRIENCES PROFESSIONNELLES -->
+        <div class="section">
+            <div class="section-title">Expériences Professionnelles</div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Chef d'équipe</div>
+                    <div class="experience-company">Manao Logiciels</div>
+                    <div class="experience-date">Oct. 2025 - Aujourd'hui</div>
+                </div>
+                <p class="experience-description">
+                    En tant que Chef d'équipe pour 9 projets d'un client, impliquant deux développeurs et un testeur : garantir la qualité des livrables, coordonner l'équipe, participer aux réunions hebdomadaires avec le client.
+                </p>
+                <div class="skills-list">
+                    <span class="skill-tag">JIRA</span>
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Organisation</span>
+                    <span class="skill-tag">Méthodes agiles</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Chef de projet</div>
+                    <div class="experience-company">Manao Logiciels</div>
+                    <div class="experience-date">Juil. 2023 - Aujourd'hui</div>
+                </div>
+                <p class="experience-description">
+                    Gestion de trois applications web avec une équipe de deux développeurs : analyse des demandes, suivi de l'avancement, revue de code, supervision des mises en production et résolution des tâches critiques.
+                </p>
+                <div class="skills-list">
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">CodeIgniter</span>
+                    <span class="skill-tag">Next.js</span>
+                    <span class="skill-tag">Gestion agile</span>
+                    <span class="skill-tag">API REST</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Chef de projet - Plateforme Carrosserie</div>
+                    <div class="experience-company">Manao Logiciels</div>
+                    <div class="experience-date">Juil. 2023 - Mars 2025</div>
+                </div>
+                <p class="experience-description">
+                    Gestion d'une plateforme web pour les métiers du carrossier : communication avec le client, supervision de la maintenance et des nouvelles fonctionnalités, optimisation du code et encadrement d'une équipe de 6 personnes.
+                </p>
+                <div class="skills-list">
+                    <span class="skill-tag">Gestion agile</span>
+                    <span class="skill-tag">Clean code</span>
+                    <span class="skill-tag">BDD</span>
+                    <span class="skill-tag">API REST</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Développeur web et mobile</div>
+                    <div class="experience-company">Manao Logiciels</div>
+                    <div class="experience-date">Oct. 2022 - Avr. 2023</div>
+                </div>
+                <p class="experience-description">
+                    Développement et maintenance de plusieurs applications Web et mobile, dont PAIE France, Paie Mada et l'application mobile 'Bulletins'.
+                </p>
+                <div class="skills-list">
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORMATION -->
+        <div class="section">
+            <div class="section-title">Formation Académique</div>
+
+            <div class="education-item">
+                <div class="education-degree">Master Professionnel en Informatique</div>
+                <div class="education-school">École Nationale d'Informatique (ENI)</div>
+                <div class="education-date">2020 - 2022</div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Licence Professionnelle en Informatique</div>
+                <div class="education-school">École Nationale d'Informatique (ENI)</div>
+                <div class="education-date">2017 - 2020</div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Baccalauréat Série D (Sciences expérimentales)</div>
+                <div class="education-school">Lycée Ambatofinandrahana</div>
+                <div class="education-date">2013 - 2016</div>
+            </div>
+        </div>
+
+        <!-- COMPÉTENCES TECHNIQUES -->
+        <div class="section">
+            <div class="section-title">Compétences Techniques</div>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <div class="tech-category-title">Langages</div>
+                    <div class="tech-items">PHP, JavaScript, TypeScript, Dart, Python, Java, C/C#, SQL</div>
+                </div>
+
+                <div class="tech-category">
+                    <div class="tech-category-title">Frameworks & Technologies</div>
+                    <div class="tech-items">React, Next.js, Flutter, Laravel, CodeIgniter, Symfony, Node.js</div>
+                </div>
+
+                <div class="tech-category">
+                    <div class="tech-category-title">Bases de données</div>
+                    <div class="tech-items">MySQL, PostgreSQL, SQLite, Redis, SQL Server</div>
+                </div>
+
+                <div class="tech-category">
+                    <div class="tech-category-title">Outils & Méthodologies</div>
+                    <div class="tech-items">Git, Jira, Postman, API REST, GraphQL, Méthodes Agile/Scrum, Clean Code</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJETS CLÉS -->
+        <div class="section">
+            <div class="section-title">Projets Clés</div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">CLV Gestion - Plateforme de gestion locative</div>
+                        <div class="project-role">Chef de Projet</div>
+                    </div>
+                    <div class="project-type">Web</div>
+                </div>
+                <p class="project-description">
+                    Pilotage du développement d'une plateforme web utilisée par 1500+ utilisateurs. Coordination d'équipe, analyse technique, révision de code et relations client.
+                </p>
+                <div class="project-tech">MySQL • CodeIgniter • Bootstrap • jQuery • API REST</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">RSOFT - Gestion de carrosserie</div>
+                        <div class="project-role">Chef de Projet</div>
+                    </div>
+                    <div class="project-type">Web</div>
+                </div>
+                <p class="project-description">
+                    Plateforme stable et performante utilisée par 10 000+ utilisateurs. Optimisation BDD, coordination d'équipe de 9 personnes, maintenance évolutive.
+                </p>
+                <div class="project-tech">CodeIgniter • MySQL • Bootstrap • Ajax</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">HPARTI - Gestion de partitions musicales</div>
+                        <div class="project-role">Concepteur & Développeur</div>
+                    </div>
+                    <div class="project-type">Mobile</div>
+                </div>
+                <p class="project-description">
+                    Application mobile collaborative pour gérer et partager des partitions. 40+ utilisateurs actifs.
+                </p>
+                <div class="project-tech">Flutter • SQLite • MySQL</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Portail Salarié</div>
+                        <div class="project-role">Développeur Mobile</div>
+                    </div>
+                    <div class="project-type">Mobile</div>
+                </div>
+                <p class="project-description">
+                    Application RH pour consultation bulletins de paie, compteurs de congés et GED. Disponible sur Play Store.
+                </p>
+                <div class="project-tech">Flutter • API REST • MySQL</div>
+            </div>
+        </div>
+
+        <!-- QUALITÉS PROFESSIONNELLES -->
+        <div class="section">
+            <div class="section-title">Qualités Professionnelles</div>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <div class="tech-category-title">Excellence technique</div>
+                    <div class="tech-items">Maîtrise des technologies modernes et clean code</div>
+                </div>
+
+                <div class="tech-category">
+                    <div class="tech-category-title">Leadership technique</div>
+                    <div class="tech-items">Pilotage d'équipes et garantie des objectifs</div>
+                </div>
+
+                <div class="tech-category">
+                    <div class="tech-category-title">Vision produit</div>
+                    <div class="tech-items">Traduction des besoins métier en solutions techniques</div>
+                </div>
+
+                <div class="tech-category">
+                    <div class="tech-category-title">Innovation continue</div>
+                    <div class="tech-items">Veille technologique et meilleures pratiques</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            CV généré le <span id="date"></span> • Disponible pour de nouvelles opportunités
+        </div>
+    </div>
+
+    <script>
+        // Afficher la date actuelle
+        document.getElementById('date').textContent = new Date().toLocaleDateString('fr-FR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Instructions pour l'impression
+        console.log('%c📄 Pour générer le PDF :', 'font-size: 16px; font-weight: bold; color: #2563eb;');
+        console.log('1. Ctrl+P (ou Cmd+P sur Mac)');
+        console.log('2. Choisir "Enregistrer au format PDF"');
+        console.log('3. Nommer le fichier : CV_Hajatiana_ANDRIANJAKA.pdf');
+    </script>
+</body>
+</html>
