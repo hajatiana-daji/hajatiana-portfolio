@@ -1,251 +1,246 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio-data';
+import { Mail, Phone, Github, Linkedin, Facebook, Download } from 'lucide-react';
 import { useEffect } from 'react';
 
 export default function CVPage() {
-  useEffect(() => {
-    // Ajouter les styles d'impression
-    document.title = `CV - ${portfolioData.profile.name}`;
-  }, []);
+    useEffect(() => {
+        // Ajouter des styles d'impression
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @media print {
+                body { margin: 0; padding: 0; }
+                .no-print { display: none !important; }
+                .cv-container { box-shadow: none !important; margin: 0 !important; }
+            }
+        `;
+        document.head.appendChild(style);
+        return () => {
+            document.head.removeChild(style);
+        };
+    }, []);
 
-  const formatDate = () => {
-    return new Date().toLocaleDateString('fr-FR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
+    const handlePrint = () => {
+        window.print();
+    };
 
-  return (
-    <>
-      <style jsx global>{`
-        @page {
-          size: A4;
-          margin: 1cm;
-        }
+    return (
+        <div className="min-h-screen bg-gray-100 py-8">
+            {/* Bouton d'impression */}
+            <div className="max-w-5xl mx-auto mb-4 no-print">
+                <button
+                    onClick={handlePrint}
+                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+                >
+                    <Download size={20} />
+                    Télécharger en PDF
+                </button>
+            </div>
 
-        @media print {
-          body {
-            print-color-adjust: exact;
-            -webkit-print-color-adjust: exact;
-          }
-          .no-print {
-            display: none !important;
-          }
-          .cv-container {
-            padding: 0 !important;
-          }
-        }
-
-        body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          line-height: 1.6;
-          color: #333;
-          background: #fff;
-        }
-      `}</style>
-
-      {/* Bouton d'impression (caché à l'impression) */}
-      <div className="no-print fixed top-4 right-4 z-50">
-        <button
-          onClick={() => window.print()}
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
-        >
-          <span>📄</span>
-          Télécharger en PDF
-        </button>
-      </div>
-
-      <div className="cv-container max-w-[210mm] mx-auto bg-white p-5">
-        {/* HEADER */}
-        <header className="text-center pb-5 border-b-[3px] border-blue-600 mb-6">
-          <h1 className="text-3xl font-bold text-blue-900 mb-2">
-            {portfolioData.profile.name}
-          </h1>
-          <div className="text-base text-gray-600 font-semibold mb-3">
-            {portfolioData.profile.title}
-          </div>
-          <div className="flex justify-center gap-5 flex-wrap text-xs text-gray-600">
-            <span>📧 {portfolioData.profile.email}</span>
-            <span>📱 {portfolioData.profile.phone.split('|')[0].trim()}</span>
-            <span>💼 {portfolioData.profile.linkedin.replace('linkedin.com/in/', '')}</span>
-            <span>🔗 {portfolioData.profile.github.replace('github.com/', '')}</span>
-          </div>
-        </header>
-
-        {/* PROFIL PROFESSIONNEL */}
-        <section className="mb-6">
-          <h2 className="text-lg font-bold text-blue-900 mb-3 pb-1 border-b-2 border-blue-400 flex items-center gap-2">
-            <div className="w-1.5 h-5 bg-blue-600 rounded"></div>
-            Profil Professionnel
-          </h2>
-          <p className="text-sm text-gray-700 leading-relaxed text-justify">
-            {portfolioData.profile.description}
-          </p>
-        </section>
-
-        {/* EXPÉRIENCES PROFESSIONNELLES */}
-        <section className="mb-6">
-          <h2 className="text-lg font-bold text-blue-900 mb-3 pb-1 border-b-2 border-blue-400 flex items-center gap-2">
-            <div className="w-1.5 h-5 bg-blue-600 rounded"></div>
-            Expériences Professionnelles
-          </h2>
-          {portfolioData.experiences.map((exp, index) => (
-            <div key={index} className="mb-4 pl-4 border-l-[3px] border-blue-600">
-              <div className="mb-1.5">
-                <h3 className="text-sm font-bold text-gray-900">{exp.title}</h3>
-                <p className="text-xs text-blue-600 font-semibold">{exp.company}</p>
-                <p className="text-xs text-gray-600 italic">{exp.date}</p>
-              </div>
-              <p className="text-xs text-gray-700 leading-relaxed mb-2">
-                {exp.description}
-              </p>
-              {exp.skills && exp.skills.length > 0 && (
-                <div className="flex flex-wrap gap-1.5">
-                  {exp.skills.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-blue-50 text-blue-900 px-2.5 py-0.5 rounded-full text-[10px] font-medium border border-blue-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+            {/* CV Container */}
+            <div className="cv-container max-w-5xl mx-auto bg-white shadow-2xl">
+                {/* En-tête */}
+                <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8">
+                    <h1 className="text-4xl font-bold mb-2">{portfolioData.profile.name}</h1>
+                    <p className="text-xl text-blue-100 mb-4">{portfolioData.profile.title}</p>
+                    
+                    <div className="flex flex-wrap gap-4 text-sm">
+                        <div className="flex items-center gap-2">
+                            <Mail size={16} />
+                            <span>{portfolioData.profile.email}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Phone size={16} />
+                            <span>{portfolioData.profile.phone}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Linkedin size={16} />
+                            <span>{portfolioData.profile.linkedin}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Github size={16} />
+                            <span>{portfolioData.profile.github}</span>
+                        </div>
+                    </div>
                 </div>
-              )}
-            </div>
-          ))}
-        </section>
 
-        {/* FORMATION ACADÉMIQUE */}
-        <section className="mb-6">
-          <h2 className="text-lg font-bold text-blue-900 mb-3 pb-1 border-b-2 border-blue-400 flex items-center gap-2">
-            <div className="w-1.5 h-5 bg-blue-600 rounded"></div>
-            Formation Académique
-          </h2>
-          {portfolioData.education.map((edu, index) => (
-            <div key={index} className="mb-3 pl-4 border-l-[3px] border-green-600 relative">
-              <div className="absolute -left-[11px] top-0 w-5 h-5 bg-green-600 rounded-full border-4 border-white"></div>
-              <h3 className="text-sm font-bold text-gray-900">{edu.degree}</h3>
-              <p className="text-xs text-green-600 font-semibold">{edu.school}</p>
-              <p className="text-xs text-gray-600 italic">{edu.date}</p>
-            </div>
-          ))}
-        </section>
+                <div className="p-8">
+                    {/* Profil */}
+                    <section className="mb-8">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-3 border-b-2 border-blue-600 pb-2">
+                            Profil
+                        </h2>
+                        <p className="text-gray-700 leading-relaxed">
+                            {portfolioData.profile.description}
+                        </p>
+                    </section>
 
-        {/* COMPÉTENCES TECHNIQUES */}
-        <section className="mb-6">
-          <h2 className="text-lg font-bold text-blue-900 mb-3 pb-1 border-b-2 border-blue-400 flex items-center gap-2">
-            <div className="w-1.5 h-5 bg-blue-600 rounded"></div>
-            Compétences Techniques
-          </h2>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-gray-50 p-3 rounded-lg border-l-[3px] border-blue-600">
-              <h3 className="text-xs font-bold text-gray-900 mb-1.5">Langages</h3>
-              <p className="text-[10px] text-gray-700 leading-relaxed">
-                {portfolioData.stack.languages.join(', ')}
-              </p>
-            </div>
+                    {/* Expériences */}
+                    <section className="mb-8">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
+                            Expériences Professionnelles
+                        </h2>
+                        {portfolioData.experiences.map((exp, index) => (
+                            <div key={index} className="mb-6">
+                                <div className="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-gray-900">{exp.title}</h3>
+                                        <p className="text-blue-600 font-medium">{exp.company}</p>
+                                    </div>
+                                    <span className="text-sm text-gray-600 whitespace-nowrap">{exp.date}</span>
+                                </div>
+                                <p className="text-gray-700 mb-2">{exp.description}</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {exp.skills.map((skill, i) => (
+                                        <span key={i} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </section>
 
-            <div className="bg-gray-50 p-3 rounded-lg border-l-[3px] border-blue-600">
-              <h3 className="text-xs font-bold text-gray-900 mb-1.5">Frameworks & Technologies</h3>
-              <p className="text-[10px] text-gray-700 leading-relaxed">
-                {portfolioData.stack.technologies_frameworks.join(', ')}
-              </p>
-            </div>
+                    {/* Formation */}
+                    <section className="mb-8">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
+                            Formation
+                        </h2>
+                        {portfolioData.education.map((edu, index) => (
+                            <div key={index} className="mb-4">
+                                <div className="flex justify-between items-start mb-1">
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-gray-900">{edu.degree}</h3>
+                                        <p className="text-blue-600">{edu.school}</p>
+                                    </div>
+                                    <span className="text-sm text-gray-600 whitespace-nowrap">{edu.date}</span>
+                                </div>
+                                <p className="text-gray-700 text-sm">{edu.description}</p>
+                            </div>
+                        ))}
+                    </section>
 
-            <div className="bg-gray-50 p-3 rounded-lg border-l-[3px] border-blue-600">
-              <h3 className="text-xs font-bold text-gray-900 mb-1.5">Bases de données</h3>
-              <p className="text-[10px] text-gray-700 leading-relaxed">
-                {portfolioData.stack.databases.join(', ')}
-              </p>
-            </div>
+                    {/* Compétences Techniques */}
+                    <section className="mb-8">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
+                            Compétences Techniques
+                        </h2>
+                        
+                        <div className="grid grid-cols-2 gap-4">
+                            <div>
+                                <h3 className="font-semibold text-gray-900 mb-2">Langages</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {portfolioData.stack.languages.map((lang, i) => (
+                                        <span key={i} className="text-sm bg-blue-50 text-blue-700 px-3 py-1 rounded">
+                                            {lang}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 className="font-semibold text-gray-900 mb-2">Frameworks</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {portfolioData.stack.technologies_frameworks.map((tech, i) => (
+                                        <span key={i} className="text-sm bg-green-50 text-green-700 px-3 py-1 rounded">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 className="font-semibold text-gray-900 mb-2">Bases de données</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {portfolioData.stack.databases.map((db, i) => (
+                                        <span key={i} className="text-sm bg-purple-50 text-purple-700 px-3 py-1 rounded">
+                                            {db}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 className="font-semibold text-gray-900 mb-2">Outils</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {portfolioData.stack.outils.map((tool, i) => (
+                                        <span key={i} className="text-sm bg-orange-50 text-orange-700 px-3 py-1 rounded">
+                                            {tool}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
 
-            <div className="bg-gray-50 p-3 rounded-lg border-l-[3px] border-blue-600">
-              <h3 className="text-xs font-bold text-gray-900 mb-1.5">Outils & Méthodologies</h3>
-              <p className="text-[10px] text-gray-700 leading-relaxed">
-                {[...portfolioData.stack.outils, ...portfolioData.stack.architecture_conception.slice(0, 3)].join(', ')}
-              </p>
-            </div>
-          </div>
-        </section>
+                        <div className="mt-4">
+                            <h3 className="font-semibold text-gray-900 mb-2">Architecture & Conception</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {portfolioData.stack.architecture_conception.map((arch, i) => (
+                                    <span key={i} className="text-sm bg-indigo-50 text-indigo-700 px-3 py-1 rounded">
+                                        {arch}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
 
-        {/* PROJETS CLÉS - TOUS LES PROJETS */}
-        <section className="mb-6">
-          <h2 className="text-lg font-bold text-blue-900 mb-3 pb-1 border-b-2 border-blue-400 flex items-center gap-2">
-            <div className="w-1.5 h-5 bg-blue-600 rounded"></div>
-            Projets Clés
-          </h2>
-          {portfolioData.projects.map((project, index) => (
-            <div key={project.id} className="mb-3 p-2.5 bg-gray-50 rounded-md border-l-[3px] border-purple-600">
-              <div className="flex justify-between items-start mb-1">
-                <div className="flex-1">
-                  <h3 className="text-sm font-bold text-gray-900">{project.title}</h3>
-                  <p className="text-xs text-purple-600 font-semibold">{project.role}</p>
-                </div>
-                <span className="text-[10px] bg-purple-600 text-white px-2 py-0.5 rounded-full">
-                  {project.type}
-                </span>
-              </div>
-              <p className="text-[10px] text-gray-700 leading-relaxed mb-1">
-                {project.description}
-              </p>
-              <p className="text-[9px] text-gray-600 italic">
-                {project.technologies.join(' • ')}
-              </p>
-            </div>
-          ))}
-        </section>
+                        <div className="mt-4">
+                            <h3 className="font-semibold text-gray-900 mb-2">Gestion & Pilotage</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {portfolioData.stack.gestion_pilotage_technique.map((gestion, i) => (
+                                    <span key={i} className="text-sm bg-teal-50 text-teal-700 px-3 py-1 rounded">
+                                        {gestion}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
 
-        {/* QUALITÉS PROFESSIONNELLES */}
-        <section className="mb-6">
-          <h2 className="text-lg font-bold text-blue-900 mb-3 pb-1 border-b-2 border-blue-400 flex items-center gap-2">
-            <div className="w-1.5 h-5 bg-blue-600 rounded"></div>
-            Qualités Professionnelles
-          </h2>
-          <div className="grid grid-cols-2 gap-3">
-            {portfolioData.characteristics.map((char, index) => (
-              <div key={index} className="bg-gray-50 p-3 rounded-lg border-l-[3px] border-blue-600">
-                <h3 className="text-xs font-bold text-gray-900 mb-1">{char.title}</h3>
-                <p className="text-[10px] text-gray-700">{char.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+                    {/* Projets Clés */}
+                    <section className="mb-8">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
+                            Projets Principaux
+                        </h2>
+                        {portfolioData.projects.slice(0, 4).map((project, index) => (
+                            <div key={index} className="mb-4">
+                                <div className="flex justify-between items-start mb-1">
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-gray-900">{project.title}</h3>
+                                        <p className="text-sm text-gray-600">{project.role} • {project.client}</p>
+                                    </div>
+                                    <span className="text-sm text-gray-600 whitespace-nowrap">{project.date}</span>
+                                </div>
+                                <p className="text-gray-700 text-sm mb-2">{project.description}</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {project.technologies.slice(0, 6).map((tech, i) => (
+                                        <span key={i} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </section>
 
-        {/* DIVERS - NOUVELLE SECTION */}
-        {portfolioData.divers && (
-          <section className="mb-6">
-            <h2 className="text-lg font-bold text-blue-900 mb-3 pb-1 border-b-2 border-blue-400 flex items-center gap-2">
-              <div className="w-1.5 h-5 bg-blue-600 rounded"></div>
-              {portfolioData.divers.title}
-            </h2>
-            <div className="space-y-2">
-              {portfolioData.divers.items.map((item, index) => (
-                <div key={index} className="flex gap-3 items-start">
-                  <span className="text-blue-600 font-bold text-xs mt-0.5">•</span>
-                  <div className="flex-1">
-                    <span className="font-semibold text-xs text-gray-900">{item.label}</span>
-                    {item.period && (
-                      <span className="text-[10px] text-gray-600 italic ml-2">
-                        ({item.period})
-                      </span>
+                    {/* Centres d'intérêt */}
+                    {portfolioData.divers && (
+                        <section>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">
+                                {portfolioData.divers.title}
+                            </h2>
+                            <div className="grid grid-cols-2 gap-4">
+                                {portfolioData.divers.items.map((item, index) => (
+                                    <div key={index}>
+                                        <h3 className="font-semibold text-gray-900">{item.label}</h3>
+                                        <p className="text-sm text-gray-700">{item.description}</p>
+                                        {item.period && <p className="text-xs text-gray-500 mt-1">{item.period}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
                     )}
-                    <p className="text-[10px] text-gray-700 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
                 </div>
-              ))}
             </div>
-          </section>
-        )}
-
-        {/* FOOTER */}
-        <footer className="text-center mt-6 pt-4 border-t-2 border-gray-200 text-[10px] text-gray-500">
-          CV généré le {formatDate()} • Disponible pour de nouvelles opportunités
-        </footer>
-      </div>
-    </>
-  );
+        </div>
+    );
 }
