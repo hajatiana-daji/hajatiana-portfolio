@@ -75,64 +75,6 @@ export default function AProposPage() {
             </div>
           )}
 
-          {/* Ce qui me caractérise */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {portfolioData.characteristics.map((char, index) => {
-              const Icon = char.icon;
-              const colorClasses = {
-                blue: 'border-blue-600 text-blue-600',
-                green: 'border-green-600 text-green-600',
-                purple: 'border-purple-600 text-purple-600',
-                orange: 'border-orange-600 text-orange-600',
-              }[char.color] || 'border-gray-600 text-gray-600';
-
-              return (
-                <div key={index} className={`bg-white p-6 rounded-xl shadow-lg border-l-4 ${colorClasses.split(' ')[0]}`}>
-                  <div className="flex items-center gap-3 mb-3">
-                    <Icon className={colorClasses.split(' ')[1]} size={28} />
-                    <h3 className="text-xl font-bold text-gray-900">{char.title}</h3>
-                  </div>
-                  <p className="text-gray-600 leading-relaxed">
-                    {char.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Ce qui me motive */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-              <span className="text-red-500">❤️</span>
-              Ce qui me motive
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {portfolioData.motivations.map((motivation, index) => {
-                const Icon = motivation.icon;
-                const bgColorClasses = {
-                  blue: 'bg-blue-100 text-blue-600',
-                  green: 'bg-green-100 text-green-600',
-                  purple: 'bg-purple-100 text-purple-600',
-                  orange: 'bg-orange-100 text-orange-600',
-                }[motivation.bg] || 'bg-gray-100 text-gray-600';
-
-                return (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className={`w-10 h-10 rounded-full ${bgColorClasses.split(' ')[0]} flex items-center justify-center flex-shrink-0`}>
-                      <Icon className={bgColorClasses.split(' ')[1]} size={20} />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-1">{motivation.title}</h4>
-                      <p className="text-gray-600 text-sm">
-                        {motivation.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
           {/* Expérience professionnelle */}
           {portfolioData.experiences && portfolioData.experiences.length > 0 && (
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
@@ -247,6 +189,64 @@ export default function AProposPage() {
               </div>
             </div>
           )}
+
+          {/* Ce qui me caractérise */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {portfolioData.characteristics.map((char, index) => {
+              const Icon = char.icon;
+              const colorClasses = {
+                blue: 'border-blue-600 text-blue-600',
+                green: 'border-green-600 text-green-600',
+                purple: 'border-purple-600 text-purple-600',
+                orange: 'border-orange-600 text-orange-600',
+              }[char.color] || 'border-gray-600 text-gray-600';
+
+              return (
+                <div key={index} className={`bg-white p-6 rounded-xl shadow-lg border-l-4 ${colorClasses.split(' ')[0]}`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <Icon className={colorClasses.split(' ')[1]} size={28} />
+                    <h3 className="text-xl font-bold text-gray-900">{char.title}</h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    {char.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Ce qui me motive */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <span className="text-red-500">❤️</span>
+              Ce qui me motive
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {portfolioData.motivations.map((motivation, index) => {
+                const Icon = motivation.icon;
+                const bgColorClasses = {
+                  blue: 'bg-blue-100 text-blue-600',
+                  green: 'bg-green-100 text-green-600',
+                  purple: 'bg-purple-100 text-purple-600',
+                  orange: 'bg-orange-100 text-orange-600',
+                }[motivation.bg] || 'bg-gray-100 text-gray-600';
+
+                return (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className={`w-10 h-10 rounded-full ${bgColorClasses.split(' ')[0]} flex items-center justify-center flex-shrink-0`}>
+                      <Icon className={bgColorClasses.split(' ')[1]} size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-1">{motivation.title}</h4>
+                      <p className="text-gray-600 text-sm">
+                        {motivation.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
           {/* CTA Contact */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl shadow-xl p-8">
