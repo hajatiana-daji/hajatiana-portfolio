@@ -31,7 +31,9 @@ export interface PortfolioData {
     facebook: string;
     github: string;
     linkedin: string;
+    portfolio: string;
   };
+  langues: { langue: string; niveau: string }[];
   projects: Project[];
   stack: {
     languages: string[];
@@ -51,7 +53,7 @@ export interface PortfolioData {
     parcours?: string[];
     ctaText?: string;
   };
-  divers?: {
+  divers: {
     title: string;
     items: { label: string; description: string; period?: string }[];
   };
@@ -65,10 +67,16 @@ export const portfolioData: PortfolioData = {
     description: "Ingénieur informatique passionné, je transforme les besoins métier en solutions techniques performantes. Expert en développement web/mobile et en architecture logicielle, j'allie compétences techniques pointues et capacité à piloter des projets d'envergure.",
     email: "arias.hajatiana@gmail.com",
     phone: "+261 34 65 511 71 | +261 33 63 511 71",
-    facebook: "facebook.com/hajatiana.andrianjaka.2025",
-    github: "github.com/hajatiana-daji",
-    linkedin: "linkedin.com/in/hda04"
+    facebook: "https://facebook.com/hajatiana.andrianjaka.2025",
+    github: "https://github.com/hajatiana-daji",
+    linkedin: "https://linkedin.com/in/hda04",
+    portfolio: "https://hajatiana.vercel.app"
   },
+  langues: [
+  { langue: "Français", niveau: "Courant" },
+  { langue: "Malgache", niveau: "Langue maternelle" },
+  { langue: "Anglais", niveau: "Technique" }
+],
   projects: [
     {
       id: "1",
@@ -111,7 +119,7 @@ export const portfolioData: PortfolioData = {
       description: "Développement et maintenance d'une plateforme de gestion locative.",
       technologies: ["MySQL", "Bootstrap", "jQuery", "Git", "API REST", "CodeIgniter (PHP)", "Ajax"],
       date: "Juillet 2023 - Aujourd'hui",
-      team: ["Développeur fullstack 1","Développeur fullstack 2", "Chef de projet", "Product Owner", "Scrum Master"],
+      team: ["Développeur fullstack 1", "Développeur fullstack 2", "Chef de projet", "Product Owner", "Scrum Master"],
       details: {
         context: "Mon arrivée dans une équipe existante pour piloter le projet et améliorer la plateforme.",
         missions: [
@@ -171,7 +179,7 @@ export const portfolioData: PortfolioData = {
       description: "Développement et maintenance d'une plateforme web pour la gestion de carrosserie.",
       technologies: ["MySQL", "Bootstrap", "jQuery", "Git", "API REST", "CodeIgniter (PHP)", "Ajax"],
       date: "Juillet 2023 - Juin 2025",
-      team: ["Technicien d'assistance 1", "Technicien d'assistance 2","Développeur Fullstack 1","Développeur Fullstack 2","Développeur Fullstack 3","Développeur Fullstack 4", "Chef de projet", "Product Owner", "Scrum Master"],
+      team: ["Technicien d'assistance 1", "Technicien d'assistance 2", "Développeur Fullstack 1", "Développeur Fullstack 2", "Développeur Fullstack 3", "Développeur Fullstack 4", "Chef de projet", "Product Owner", "Scrum Master"],
       details: {
         context: "Une grande plateforme de gestion de carrosserie pour les ateliers de réparation automobile. J'ai rejoint l'équipe en tant que chef de projet pour superviser le développement et la maintenance de la plateforme et surtout apporter des optimisations techniques (optimisation du code et base de données).",
         responsibilities: [
@@ -203,7 +211,7 @@ export const portfolioData: PortfolioData = {
       description: "Développement d'une plateforme web dédiée à la revente de biens en LMNP sous bail commercial.",
       technologies: ["CodeIgniter (PHP)", "Redis", "MySQL", "jQuery", "Bootstrap", "Ajax", "Git"],
       date: "Juillet 2023 - Aujourd'hui",
-      team: ["Développeur FullStack 1","Développeur FullStack 2", "Chef de projet", "Product Owner", "Scrum Master"],
+      team: ["Développeur FullStack 1", "Développeur FullStack 2", "Chef de projet", "Product Owner", "Scrum Master"],
       details: {
         context: "Plateforme destinée à centraliser et automatiser la gestion de biens immobiliers LMNP pour des investisseurs.",
         responsibilities: [
@@ -234,7 +242,7 @@ export const portfolioData: PortfolioData = {
       technologies: ["Flutter", "API REST", "MySQL", "Git"],
       date: "Avril 2022 - Octobre 2022",
       team: [
-        "Développeur Mobile","Développeur Backend","Designer","Testeur 1","Testeur 1","Product Owner"
+        "Développeur Mobile", "Développeur Backend", "Designer", "Testeur 1", "Testeur 1", "Product Owner"
       ],
       details: {
         context: "Digitalisation de l'accès aux informations RH pour les salariés via une application mobile sécurisée.",
@@ -323,14 +331,32 @@ export const portfolioData: PortfolioData = {
     }
   ],
   stack: {
+    architecture_conception: [
+      "Architecture logicielle",
+      "Design Patterns",
+      "API REST",
+      "Clean Code",
+      "Clean Architecture",
+      "Principes SOLID",
+      "Modélisation UML"
+    ],
+
+    gestion_pilotage_technique: [
+      "Analyse des besoins",
+      "Conception fonctionnelle",
+      "Gestion d'équipe (développeurs)",
+      "Méthodes Agile / Scrum",
+      "Suivi et pilotage de projets",
+      "Estimation & planification",
+      "Documentation & coordination métier"
+    ],
     languages: ["PHP", "JavaScript", "TypeScript", "Dart", "Python", "Java", "C/C#", "SQL"],
     technologies_frameworks: [
-      "React", "Next.js", "Flutter", "Laravel", "CodeIgniter", "Symfony", "Node.js"
+      "React", "Next.js", "Flutter", "Laravel", "CodeIgniter", "Symfony", "Node.js", "ASP.NET MVC", "Ajax", "Bootstrap", "jQuery", "Tailwind CSS", "Vue.js"
     ],
-    databases: ["MySQL", "PostgreSQL", "SQLite", "Redis", "SQL Server"],
-    outils: ["Git", "Postman", "Jira", "dbeaver", "navicat", "Android Studio"],
-    architecture_conception: ["Architecture logicielle", "Design Patterns", "API REST", "GraphQL", "Clean Code", "Clean Architecture"],
-    gestion_pilotage_technique: ["Analyse des besoins", "Conception fonctionnelle", "Gestion d'équipe (développeurs)", "Méthodes Agile / Scrum", "Suivi et pilotage de projets"]
+    databases: ["MySQL", "PostgreSQL", "SQLite", "SQL Server"],
+    outils: ["Git", "GitHub / GitLab", "Postman", "Swagger / OpenAPI", "Jira", "VS Code", "dbeaver", "navicat", "Android Studio", "MobaXterm", "FileZilla"
+    ]
   },
   profileExtra: {
     available: true,
@@ -356,7 +382,7 @@ export const portfolioData: PortfolioData = {
   experiences: [
     {
       title: "Chef d'équipe",
-      company: "Manao Logiciels",
+      company: "MANAO Logiciels",
       date: "Oct. 2025 - Aujourd'hui",
       description: "En tant que Chef d'équipe pour 9 projets d'un client, impliquant deux développeurs et un testeur : garantir la qualité des livrables, coordonner l'équipe, participer aux réunions hebdomadaires avec le client.",
       skills: ["JIRA", "Leadership d'équipe", "Sens de l'organisation", "Méthodes agiles"],
@@ -364,7 +390,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Chef de projet",
-      company: "Manao Logiciels",
+      company: "MANAO Logiciels",
       date: "Juil. 2023 - Aujourd'hui",
       description: "Gestion de trois applications web avec une équipe de deux développeurs : analyse des demandes, suivi de l'avancement, revue de code, supervision des mises en production et résolution des tâches critiques.",
       skills: ["MySQL", "CodeIgniter", "Next.js", "Gestion de projet agile", "jQuery", "AJAX", "Git", "API REST", "Node.js", "Conception de logiciels"],
@@ -372,7 +398,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Chef de projet",
-      company: "Manao Logiciels",
+      company: "MANAO Logiciels",
       date: "Juil. 2023 - Mars 2025",
       description: "Gestion d'une plateforme web pour les métiers du corrisier : communication avec le client, supervision de la maintenance et des nouvelles fonctionnalités, optimisation du code et encadrement d'une équipe de 6 personnes.",
       skills: ["Gestion de projet agile", "Git", "Clean code", "Conception de bases de données", "API REST", "Gestion des priorités"],
@@ -380,7 +406,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Responsable technique de l'AO et l'AMI",
-      company: "Manao Logiciels",
+      company: "MANAO Logiciels",
       date: "Mai 2023 - Déc. 2023",
       description: "Collaboration avec les équipes internes pour les appels d'offres et manifestations d'intérêt : rédaction des documents techniques, évaluation des soumissions et reporting à la direction.",
       skills: ["Gestion de projet agile", "Git", "Développement de logiciels", "Conception de logiciels"],
@@ -388,7 +414,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Responsable de projets",
-      company: "Manao Logiciels",
+      company: "MANAO Logiciels",
       date: "Avr. 2023 - Juil. 2023",
       description: "Coordination des projets Gestion, Commercial-Ventes et Communication : encadrement des équipes, formation, gestion des demandes d'évolution fonctionnelle et suivi régulier des projets.",
       skills: ["Développement d'applications mobiles", "Gestion de projet agile", "Git", "Développement de logiciels", "Conception de logiciels"],
@@ -396,7 +422,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Développeur web et mobile",
-      company: "Manao Logiciels",
+      company: "MANAO Logiciels",
       date: "Oct. 2022 - Avr. 2023",
       description: "Développement et maintenance de plusieurs applications Web et mobile, dont PAIE France, Paie Mada et l'application mobile 'Bulletins'.",
       skills: ["PHP", "Développement d'applications mobiles", "Git", "JavaScript", "Développement de logiciels", "Flutter", "Conception de logiciels"],
@@ -404,7 +430,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Stagiaire développeur",
-      company: "Manao Logiciels / ENI Fianarantsoa",
+      company: "MANAO Logiciels / ENI Fianarantsoa",
       date: "Avr. 2022 - Oct. 2022",
       description: "Préparation du mémoire de fin d'études et développement de l'application mobile 'Bulletins', disponible sur le Play Store.",
       skills: ["PHP", "MySQL", "CodeIgniter", "Git", "Développement de logiciels", "Dart", "Flutter"],
