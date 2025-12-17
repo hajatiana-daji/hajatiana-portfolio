@@ -75,7 +75,7 @@ export default function Footer() {
         <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex gap-4">
             <a 
-              href={`https://${portfolioData.profile.facebook}`} 
+              href={`${portfolioData.profile.facebook}`} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-10 h-10 rounded-full bg-slate-700 hover:bg-blue-600 transition-colors flex items-center justify-center"
@@ -83,7 +83,7 @@ export default function Footer() {
               <Facebook size={20} />
             </a>
             <a 
-              href={`https://${portfolioData.profile.github}`} 
+              href={`${portfolioData.profile.github}`} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-10 h-10 rounded-full bg-slate-700 hover:bg-gray-600 transition-colors flex items-center justify-center"
@@ -91,7 +91,7 @@ export default function Footer() {
               <Github size={20} />
             </a>
             <a 
-              href={`https://${portfolioData.profile.linkedin}`} 
+              href={`${portfolioData.profile.linkedin}`} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-10 h-10 rounded-full bg-slate-700 hover:bg-blue-500 transition-colors flex items-center justify-center"
